@@ -10,10 +10,17 @@ import Foundation
 
 
 class Players {
-    var playerName: String
-    init(playerName: String) {
-        self.playerName = playerName
-    }
+//    var player1Name: String
+//    init(player1Name: String) {
+//        self.player1Name = player1Name
+//    }
+//        func namePlayer1() {
+//            player1Name = ""
+//    }
+//    var player2Name: String
+//    init(player2Name: String) {
+//        self.player2Name = player2Name
+//    }
     func presentMenu() {
         print("Please choose your name"
             + "\n1. Player 1 press 1 to choose your name"
@@ -21,7 +28,7 @@ class Players {
         if let choice = readLine() {
             switch choice {
             case "1":
-                player1Name()
+                player1Choice()
             case "2":
                 print("Votre banque contient euros !")
             default:
@@ -29,12 +36,12 @@ class Players {
             }
         }
     }
-    func player1Name() {
+    func player1Choice() {
         print("Player 1 please choose your name")
         if let choice = readLine() {
             switch choice {
-            case "1":
-                player1Name()
+            case "":
+                print("namePlayer1()")
             case "2":
                 print("Votre banque contient euros !")
             default:

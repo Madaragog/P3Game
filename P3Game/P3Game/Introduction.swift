@@ -20,7 +20,7 @@ class Introduction {
         if let c = readLine() {
             switch c {
             case "c":
-                print("i")
+                print("yo")
             default:
                 print("Je ne comprends pas")
             }
