@@ -16,6 +16,14 @@ class Introduction {
         +   "\n You will have to choose and name 3 characters."
         +   "\n You have to play each your turn."
         +   "\n When you are ready, FIGHT !"
-        +   "\n GOOD LUCK 😎")
+        +   "\n GOOD LUCK 😎, press c to continue")
+        if let c = readLine() {
+            switch c {
+            case "c":
+                print("i")
+            default:
+                print("Je ne comprends pas")
+            }
+        }
     }
 }
