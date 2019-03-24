@@ -83,15 +83,63 @@ class Players {
             + "\n The Mage can choose to attack an enemy or to heal a comrade"
             + "\n Player 1 to choose your characters please press 1"
             + "\n Player 2 to choose your characters please press 2"
-            + "\n Once you choosed your characters please press c to continue")
+            + "\n Once you choosed and named your characters please press c to continue")
         if let choice = readLine() {
             switch choice {
             case "1":
-                print("charactersPlayer1()")
+                charactersPlayer1()
             case "2":
-                print("charactersPlayer2()")
+                charactersPlayer2()
             case "c":
                 print("next step")
+            default:
+                print("I don't understand")
+            }
+        }
+    }
+    func charactersPlayer1() {
+        print("Player 1 please choose your Characters and name them"
+            + "\n Press 1 to chosse the Combattant"
+            + "\n Press 2 to chosse the Mage"
+            + "\n Press 3 to chosse the Colosse"
+            + "\n Press 4 to chosse the Nain"
+            + "\n Once you choosed and named your characters please press c to continue")
+        if let choice = readLine() {
+            switch choice {
+            case "1":
+                print("Characters().Combatant()")
+            case "2":
+                print("Characters().Mage()")
+            case "3":
+                print("Characters().Colosse()")
+            case "4":
+                print("Characters().Nain()")
+            case "c":
+                chooseCharacters()
+            default:
+                print("I don't understand")
+            }
+        }
+    }
+    func charactersPlayer2() {
+        print("Player 2 please choose your Characters and name them"
+            + "\n Press 1 to chosse the Combattant"
+            + "\n Press 2 to chosse the Mage"
+            + "\n Press 3 to chosse the Colosse"
+            + "\n Press 4 to chosse the Nain"
+            + "\n Once you choosed and named your characters please press c to continue")
+        if let choice = readLine() {
+            switch choice {
+            case "1":
+                print("Characters().Combatant()")
+            case "2":
+                print("Characters().Mage()")
+            case "3":
+                print("Characters().Colosse()")
+            case "4":
+                print("Characters().Nain()")
+            case "c":
+                chooseCharacters()
             default:
                 print("I don't understand")
             }
