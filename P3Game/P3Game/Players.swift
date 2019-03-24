@@ -21,6 +21,15 @@ class Players {
 //    init(player2Name: String) {
 //        self.player2Name = player2Name
 //    }
+//        func namePlayer2() {
+//            player2Name = ""
+//    }
+    
+    
+    
+    
+    
+    
     func presentMenu() {
         print("Please choose your name"
             + "\n1. Player 1 press 1 to choose your name"
@@ -30,9 +39,9 @@ class Players {
             case "1":
                 player1Choice()
             case "2":
-                print("Votre banque contient euros !")
+                player2Choice()
             default:
-                print("Je ne comprends pas")
+                print("I don't understand")
             }
         }
     }
@@ -42,10 +51,19 @@ class Players {
             switch choice {
             case "":
                 print("namePlayer1()")
-            case "2":
-                print("Votre banque contient euros !")
             default:
-                print("Je ne comprends pas")
+                print("I don't understand")
+            }
+        }
+    }
+    func player2Choice() {
+        print("Player 1 please choose your name")
+        if let choice = readLine() {
+            switch choice {
+            case "":
+                print("namePlayer2()")
+            default:
+                print("I don't understand")
             }
         }
     }
