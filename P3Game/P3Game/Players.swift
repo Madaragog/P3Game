@@ -9,70 +9,40 @@
 import Foundation
 
 
-class Players {
-//    var player1Name: String
-//    init(player1Name: String) {
-//        self.player1Name = player1Name
-//    }
-//        func namePlayer1() {
-//            player1Name = ""
-//            presentMenu()
-//    }
-//    var player2Name: String
-//    init(player2Name: String) {
-//        self.player2Name = player2Name
-//    }
-//        func namePlayer2() {
-//           player2Name = ""
-//           presentMenu()
-//    }
+class Player {
     
+    let name: String
     
-    
-    
-    
+    init(name: String) {
+        self.name = name
+    }
+}
+
+
+class PlayerManager {
+    var player1: Player?
+    var player2: Player?
     
     func presentMenu() {
         print("Please choose your name"
-            + "\n1. Player 1 press 1 to choose your name"
-            + "\n2. Player 2 press 2 to choose your name"
-            + "\n3. Once you choosed your name, press 3"
-            + "\n   to choose your characters")
-        if let choice = readLine() {
-            switch choice {
-            case "1":
-                player1Choice()
-            case "2":
-                player2Choice()
-            case "3":
-                chooseCharacters()
-            default:
-                print("I don't understand")
-            }
+            + "\n1. Player 1 choose your name")
+        player1 = createPlayer()
+        print("Please choose your name"
+            + "\n1. Player 2 choose your name")
+        player2 = createPlayer()
+        
+        chooseCharacters()
+    }
+    func createPlayer() -> Player {
+        if let choice = readLine(), !choice.isEmpty {
+            return Player(name: choice)
+        } else {
+            print("error try again")
+            return createPlayer()
         }
     }
-    func player1Choice() {
-        print("Player 1 please choose your name")
-        if let choice = readLine() {
-            switch choice {
-            case "":
-                print("namePlayer1()")
-            default:
-                print("I don't understand")
-            }
-        }
-    }
-    func player2Choice() {
-        print("Player 2 please choose your name")
-        if let choice = readLine() {
-            switch choice {
-            case "":
-                print("namePlayer2()")
-            default:
-                print("I don't understand")
-            }
-        }
-    }
+    
+    
     func chooseCharacters() {
         print("Characters selection"
             + "\n Each of you will have to choose and name 3 characters between :"
