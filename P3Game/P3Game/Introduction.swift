@@ -20,7 +20,7 @@ class Introduction {
         if let c = readLine() {
             switch c {
             case "c":
-                Players().presentMenu()
+                PlayerManager().presentMenu()
             default:
                 print("I don't understand")
             }
