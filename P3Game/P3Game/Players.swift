@@ -9,14 +9,19 @@
 import Foundation
 
 
-class Player {
+class Player : Characters {
+    var fighter: Fighter
+    var wizard: Wizard
+    var colossus: Colossus
+    var dwarf: Dwarf
     
-    let name: String
+    var playerName: String
     
-    init(name: String) {
-        self.name = name
+    init(playerName: String) {
+        self.playerName = playerName
+        }
     }
-}
+
 
 class PlayerManager {
     var player1: Player?
@@ -32,7 +37,7 @@ class PlayerManager {
     }
     func createPlayer() -> Player {
         if let choice = readLine(), !choice.isEmpty {
-            return Player(name: choice)
+            return Player(playerName: choice)
         } else {
             print("error try again")
             return createPlayer()
@@ -49,9 +54,44 @@ class PlayerManager {
             + "\n The Dwarf (life point: 80, weapon: Axe, weapon damage: 15)"
             + "\n The Wizard can omly choose a comrade to heal"
             + "\n ************************************************************"
-            + "\n \(player1!.name) please choose your Characters and name them"
+            + "\n \(player1!.playerName) please choose your Characters and name them"
             + "\n To choose press 1 for The Fighter, 2 for The Wizard"
             + "\n                 3 for The Colossus, 4 for The Dwarf")
         
+        
+        
+        
+        
+        
+        
+            }
+    func playerTeamCreation() {
+        if let choice = readLine() {
+            switch choice {
+            case "1":
+                print("Choose your Fighter's name")
+                player1?.fighter = createFighterPlayer()
+            case "2":
+                print("Choose your Wizard's name")
+                
+            case "3":
+                print("Choose your Colossus's name")
+                
+            case "4":
+                print("Choose your Dwarf's name")
+                
+            default:
+                print("I don't understand")
+            }
+        }
     }
+    func createFighterPlayer() -> Fighter {
+        if let choice = readLine(), !choice.isEmpty {
+            return Fighter(type: "Fighter", lp: 100, weapon: "Sword", name: choice)
+        } else {
+            print("error try again")
+            return createFighterPlayer()
+        }
+    }
+    
 }
