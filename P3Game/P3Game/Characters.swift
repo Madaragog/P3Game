@@ -8,38 +8,47 @@
 
 import Foundation
 
-class Combattant {
-    let type = "Combattant"
-    var lp = 100
-    var weapon = "Sword"
+
+class Characters {
+    var type: String
+    var lp: Int
+    var weapon: String
+    
+    init(type: String, lp: Int, weapon: String) {
+        self.type = type
+        self.lp = lp
+        self.weapon = weapon
+    }
+}
+
+
+class Fighter: Characters {
+    override init(type: String, lp: Int, weapon: String) {
+        super.init(type: "Fighter", lp: 100, weapon: "Sword")
+    }
     var weaponDamage = 15
 }
 
 
-class Mage {
-    let type = "Mage"
-    var lp = 70
-    var weapon = "Magic Stick"
-    var weaponDamage = 7
+class Wizard: Characters {
+    override init(type: String, lp: Int, weapon: String) {
+        super.init(type: "Wizard", lp: 70, weapon: "Magic Stick")
+    }
     var weaponHeal = 10
 }
 
 
-class Colosse {
-    let type = "Colosse"
-    var lp = 120
-    var weapon = "Mace"
+class Colossus: Characters {
+    override init(type: String, lp: Int, weapon: String) {
+        super.init(type: "Dwarf", lp: 120, weapon: "Mace")
+    }
     var weaponDamage = 16
 }
 
 
-class Nain {
-    let type = "Nain"
-    var lp = 80
-    var weapon = "Axe"
+class Dwarf: Characters {
+    override init(type: String, lp: Int, weapon: String) {
+        super.init(type: "Dwarf", lp: 80, weapon: "Axe")
+    }
     var weaponDamage = 15
-}
-
-class CharactersChoice {
-    
 }
