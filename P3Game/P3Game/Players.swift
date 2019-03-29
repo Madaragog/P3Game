@@ -18,6 +18,7 @@ class Player : Characters {
     var playerName: String
     
     init(playerName: String) {
+        super.init()
         self.playerName = playerName
         }
     }
