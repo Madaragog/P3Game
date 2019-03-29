@@ -42,7 +42,7 @@ class Wizard: Characters {
 
 class Colossus: Characters {
     override init(type: String, lp: Int, weapon: String, name: String) {
-        super.init(type: "Dwarf", lp: 120, weapon: "Mace", name: "")
+        super.init(type: "Colossus", lp: 120, weapon: "Mace", name: "")
     }
     var weaponDamage = 16
 }
