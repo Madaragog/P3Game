@@ -9,16 +9,15 @@
 import Foundation
 
 
-class Player : Characters {
-    var fighter: Fighter
-    var wizard: Wizard
-    var colossus: Colossus
-    var dwarf: Dwarf
+class Player {
+    var fighter: Fighter?
+    var wizard: Wizard?
+    var colossus: Colossus?
+    var dwarf: Dwarf?
     
     var playerName: String
     
     init(playerName: String) {
-        super.init()
         self.playerName = playerName
         }
     }
