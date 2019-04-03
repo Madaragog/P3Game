@@ -7,20 +7,18 @@
 //
 
 import Foundation
-
+//faire comme si 10 perso
 
 class Player {
-    var fighter: Fighter?
-    var wizard: Wizard?
-    var colossus: Colossus?
-    var dwarf: Dwarf?
+    //    faire une tableau team
+    var team = [Characters]()
     
     var playerName: String
     
     init(playerName: String) {
         self.playerName = playerName
-        }
     }
+}
 
 
 class PlayerManager {
@@ -57,82 +55,47 @@ class PlayerManager {
             + "\n \(player1!.playerName) please choose your Characters and name them"
             + "\n To choose press 1 for The Fighter, 2 for The Wizard"
             + "\n                 3 for The Colossus, 4 for The Dwarf")
-            player1TeamCreation()
-            player2TeamCreation()
-        
-        
-        
-        
-        
-        
-            }
-    func player1TeamCreation() {
-        if let choice = readLine() {
-            switch choice {
-            case "1":
-                print("Choose your Fighter's name")
-                player1?.fighter = createFighterPlayer()
-                print("\(player1!.playerName) when you're done with your 3 characters, press c to continue")
-                player1TeamCreation()
-            case "2":
-                print("Choose your Wizard's name")
-                player1?.wizard = createWizardPlayer()
-                print("\(player1!.playerName) when you're done with your 3 characters, press c to continue")
-                player1TeamCreation()
-            case "3":
-                print("Choose your Colossus's name")
-                player1?.colossus = createColossusPlayer()
-                print("\(player1!.playerName) when you're done with your 3 characters, press c to continue")
-                player1TeamCreation()
-            case "4":
-                print("Choose your Fighter's name")
-                player1?.fighter = createFighterPlayer()
-                print("\(player1!.playerName) when you're done with your 3 characters, press c to continue")
-                player1TeamCreation()
-            case "c":
-                print("\(player2!.playerName) please choose your Characters and name them"
-                    + "\n To choose press 1 for The Fighter, 2 for The Wizard"
-                    + "\n                 3 for The Colossus, 4 for The Dwarf")
-                player2TeamCreation()
-            default:
-                print("I don't understand")
-                player1TeamCreation()
-            }
+        playerTeamCreation(player: player1!)
+        playerTeamCreation(player: player2!)
+        while true {
+            presentMenu()
         }
+        
+        
+        
+        
     }
-    func player2TeamCreation() {
+    func playerTeamCreation(player: Player) {
         if let choice = readLine() {
             switch choice {
             case "1":
                 print("Choose your Fighter's name")
-                player2?.fighter = createFighterPlayer()
-                print("\(player2!.playerName) when you're done with your 3 characters, press c to continue")
-                player2TeamCreation()
+                player.team.append(createFighterPlayer())
+                print("\(player.playerName) when you're done with your 3 characters, press c to continue")
+                
             case "2":
                 print("Choose your Wizard's name")
-                player2?.wizard = createWizardPlayer()
-                print("\(player2!.playerName) when you're done with your 3 characters, press c to continue")
-                player2TeamCreation()
+                player.team.append(createWizardPlayer())
+                print("\(player.playerName) when you're done with your 3 characters, press c to continue")
+                
             case "3":
                 print("Choose your Colossus's name")
-                player2?.colossus = createColossusPlayer()
-                print("\(player2!.playerName) when you're done with your 3 characters, press c to continue")
-                player2TeamCreation()
+                player.team.append(createColossusPlayer())
+                print("\(player.playerName) when you're done with your 3 characters, press c to continue")
+                
             case "4":
                 print("Choose your Dwarf's name")
-                player2?.dwarf = createDwarfPlayer()
-                print("\(player2!.playerName) when you're done with your 3 characters, press c to continue")
-                player2TeamCreation()
-            case "c":
-                print("next step")
+                player.team.append(createDwarfPlayer())
+                print("\(player.playerName) when you're done with your 3 characters, press c to continue")
             default:
                 print("I don't understand")
+                playerTeamCreation(player: player)
             }
         }
     }
     func createFighterPlayer() -> Fighter {
         if let choice = readLine(), !choice.isEmpty {
-            return Fighter(type: "Fighter", lp: 100, weapon: "Sword", name: choice)
+            return Fighter(name: choice)
         } else {
             print("error try again")
             return createFighterPlayer()
@@ -140,7 +103,7 @@ class PlayerManager {
     }
     func createWizardPlayer() -> Wizard {
         if let choice = readLine(), !choice.isEmpty {
-            return Wizard(type: "Wizard", lp: 70, weapon: "Magic Stick", name: choice)
+            return Wizard(name: choice)
         } else {
             print("error try again")
             return createWizardPlayer()
@@ -148,7 +111,7 @@ class PlayerManager {
     }
     func createColossusPlayer() -> Colossus {
         if let choice = readLine(), !choice.isEmpty {
-            return Colossus(type: "Colussus", lp: 120, weapon: "Mace", name: choice)
+            return Colossus(name: choice)
         } else {
             print("error try again")
             return createColossusPlayer()
@@ -156,7 +119,7 @@ class PlayerManager {
     }
     func createDwarfPlayer() -> Dwarf {
         if let choice = readLine(), !choice.isEmpty {
-            return Dwarf(type: "Dwarf", lp: 80, weapon: "Axe", name: choice)
+            return Dwarf(name: choice)
         } else {
             print("error try again")
             return createDwarfPlayer()
