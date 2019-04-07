@@ -29,9 +29,9 @@ class PlayerManager {
             return createPlayer()
         }
     }
-
-    
-    
+    func charactersStats(player: Player) {
+        print("\(player.team)")
+    }
     func chooseCharacters() {
         print("Characters selection"
             + "\n Each of you will have to choose and name 3 characters between :"
@@ -45,8 +45,12 @@ class PlayerManager {
             + "\n                 3 for The Colossus, 4 for The Dwarf"
             + "\n \(player1!.playerName) you start choosing")
             playerTeamCreation(player: player1!)
-        print("\n \(player2!.playerName) it's your turn to choose")
+        print("\n \(player2!.playerName) it's your turn to choose"
+            + "\n To choose press 1 for The Fighter, 2 for The Wizard"
+            + "\n                 3 for The Colossus, 4 for The Dwarf")
             playerTeamCreation(player: player2!)
+        charactersStats(player: player1!)
+        charactersStats(player: player2!)
     }
     func playerTeamCreation(player: Player) {
         if let choice = readLine() {
@@ -54,27 +58,22 @@ class PlayerManager {
             case "1":
                 print("\(player.playerName) Choose your Fighter's name")
                 player.team.append(createFighterPlayer())
-                print("\(player.playerName) when you're done with your 3 characters, press c to continue")
             case "2":
                 print("\(player.playerName) Choose your Wizard's name")
                 player.team.append(createWizardPlayer())
-                print("\(player.playerName) when you're done with your 3 characters, press c to continue")
-                
             case "3":
                 print("\(player.playerName) Choose your Colossus's name")
                 player.team.append(createColossusPlayer())
-                print("\(player.playerName) when you're done with your 3 characters, press c to continue")
-                
             case "4":
                 print("\(player.playerName) Choose your Dwarf's name")
                 player.team.append(createDwarfPlayer())
-                print("\(player.playerName) when you're done with your 3 characters, press c to continue")
             default:
                 print("I don't understand, \(player.playerName) please restart")
                 playerTeamCreation(player: player)
             }
+//            to create a certain number of characters
         }
-        if player.team.count < 4  {
+        if player.team.count < 3  {
             playerTeamCreation(player: player)
         }
     }
