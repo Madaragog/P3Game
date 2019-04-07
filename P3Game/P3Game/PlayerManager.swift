@@ -19,7 +19,7 @@ class PlayerManager {
         print("\n1. Player 2 choose your name")
         player2 = createPlayer()
         
-        chooseCharacters()
+      chooseCharacters()
     }
     func createPlayer() -> Player {
         if let choice = readLine(), !choice.isEmpty {
@@ -29,6 +29,7 @@ class PlayerManager {
             return createPlayer()
         }
     }
+
     
     
     func chooseCharacters() {
@@ -40,45 +41,41 @@ class PlayerManager {
             + "\n The Dwarf (life point: 80, weapon: Axe, weapon damage: 15)"
             + "\n The Wizard can only choose a comrade to heal"
             + "\n ************************************************************"
-            + "\n \(player1!.playerName) please choose your Characters and name them"
             + "\n To choose press 1 for The Fighter, 2 for The Wizard"
-            + "\n                 3 for The Colossus, 4 for The Dwarf")
-        playerTeamCreation(player: player1!)
-        playerTeamCreation(player: player2!)
-        while true {
-            presentMenu()
-        }
-        
-        
-        
-        
+            + "\n                 3 for The Colossus, 4 for The Dwarf"
+            + "\n \(player1!.playerName) you start choosing")
+            playerTeamCreation(player: player1!)
+        print("\n \(player2!.playerName) it's your turn to choose")
+            playerTeamCreation(player: player2!)
     }
     func playerTeamCreation(player: Player) {
         if let choice = readLine() {
             switch choice {
             case "1":
-                print("Choose your Fighter's name")
+                print("\(player.playerName) Choose your Fighter's name")
                 player.team.append(createFighterPlayer())
                 print("\(player.playerName) when you're done with your 3 characters, press c to continue")
-                
             case "2":
-                print("Choose your Wizard's name")
+                print("\(player.playerName) Choose your Wizard's name")
                 player.team.append(createWizardPlayer())
                 print("\(player.playerName) when you're done with your 3 characters, press c to continue")
                 
             case "3":
-                print("Choose your Colossus's name")
+                print("\(player.playerName) Choose your Colossus's name")
                 player.team.append(createColossusPlayer())
                 print("\(player.playerName) when you're done with your 3 characters, press c to continue")
                 
             case "4":
-                print("Choose your Dwarf's name")
+                print("\(player.playerName) Choose your Dwarf's name")
                 player.team.append(createDwarfPlayer())
                 print("\(player.playerName) when you're done with your 3 characters, press c to continue")
             default:
-                print("I don't understand")
+                print("I don't understand, \(player.playerName) please restart")
                 playerTeamCreation(player: player)
             }
+        }
+        if player.team.count < 4  {
+            playerTeamCreation(player: player)
         }
     }
     func createFighterPlayer() -> Fighter {
