@@ -15,7 +15,6 @@
 		8279F95E225500A000CCD54C /* Dwarf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8279F95D225500A000CCD54C /* Dwarf.swift */; };
 		8279F960225500FE00CCD54C /* PlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8279F95F225500FE00CCD54C /* PlayerManager.swift */; };
 		8279F962225A257F00CCD54C /* Fight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8279F961225A257F00CCD54C /* Fight.swift */; };
-		8279F964225A286D00CCD54C /* Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8279F963225A286D00CCD54C /* Stats.swift */; };
 		829A1A82224000F400E1E2E0 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829A1A81224000F400E1E2E0 /* main.swift */; };
 		829A1A892240012D00E1E2E0 /* Introduction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829A1A882240012D00E1E2E0 /* Introduction.swift */; };
 		82D8C9692245748100449379 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D8C9682245748100449379 /* Player.swift */; };
@@ -42,7 +41,6 @@
 		8279F95D225500A000CCD54C /* Dwarf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dwarf.swift; sourceTree = "<group>"; };
 		8279F95F225500FE00CCD54C /* PlayerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerManager.swift; sourceTree = "<group>"; };
 		8279F961225A257F00CCD54C /* Fight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fight.swift; sourceTree = "<group>"; };
-		8279F963225A286D00CCD54C /* Stats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stats.swift; sourceTree = "<group>"; };
 		829A1A7E224000F400E1E2E0 /* P3Game */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = P3Game; sourceTree = BUILT_PRODUCTS_DIR; };
 		829A1A81224000F400E1E2E0 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		829A1A882240012D00E1E2E0 /* Introduction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Introduction.swift; sourceTree = "<group>"; };
@@ -90,7 +88,6 @@
 				8279F95B2255005000CCD54C /* Colossus.swift */,
 				8279F95D225500A000CCD54C /* Dwarf.swift */,
 				8279F961225A257F00CCD54C /* Fight.swift */,
-				8279F963225A286D00CCD54C /* Stats.swift */,
 			);
 			path = P3Game;
 			sourceTree = "<group>";
@@ -155,7 +152,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8279F962225A257F00CCD54C /* Fight.swift in Sources */,
-				8279F964225A286D00CCD54C /* Stats.swift in Sources */,
 				8279F960225500FE00CCD54C /* PlayerManager.swift in Sources */,
 				8279F9562254FFAA00CCD54C /* Weapon.swift in Sources */,
 				8279F9582254FFFC00CCD54C /* Fighter.swift in Sources */,

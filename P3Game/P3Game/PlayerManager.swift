@@ -40,19 +40,17 @@ class PlayerManager {
             + "\n The Colossus (life point: 120, weapon: Mace, weapon damage: 16)"
             + "\n The Dwarf (life point: 80, weapon: Axe, weapon damage: 15)"
             + "\n The Wizard can only choose a comrade to heal"
-            + "\n ************************************************************"
-            + "\n To choose press 1 for The Fighter, 2 for The Wizard"
-            + "\n                 3 for The Colossus, 4 for The Dwarf"
-            + "\n \(player1!.playerName) you start choosing")
+            + "\n ************************************************************")
             playerTeamCreation(player: player1!)
-        print("\n \(player2!.playerName) it's your turn to choose"
+            playerTeamCreation(player: player2!)
+            charactersStats(player: player1!)
+            charactersStats(player: player2!)
+    }
+//    deballer optionnel plus class pour chaque armes
+    func playerTeamCreation(player: Player) {
+        print("\n \(player.playerName) it's your turn to choose"
             + "\n To choose press 1 for The Fighter, 2 for The Wizard"
             + "\n                 3 for The Colossus, 4 for The Dwarf")
-            playerTeamCreation(player: player2!)
-        charactersStats(player: player1!)
-        charactersStats(player: player2!)
-    }
-    func playerTeamCreation(player: Player) {
         if let choice = readLine() {
             switch choice {
             case "1":
@@ -73,6 +71,7 @@ class PlayerManager {
             }
 //            to create a certain number of characters
         }
+        //faire un boucle while
         if player.team.count < 3  {
             playerTeamCreation(player: player)
         }
