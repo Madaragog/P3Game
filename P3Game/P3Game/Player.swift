@@ -10,7 +10,6 @@ import Foundation
 //faire comme si 10 perso
 
 class Player {
-    //    faire une tableau team
     var team = [Characters]()
     
     var playerName: String

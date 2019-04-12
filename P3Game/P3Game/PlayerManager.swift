@@ -9,17 +9,24 @@
 import Foundation
 
 
-class PlayerManager {
+class PlayerManager: ProtocolUnwrapedPlayers {
     var player1: Player?
     var player2: Player?
     
+    func unwrapPlayers(player: Player) {
+        if (player1 != nil) || (player2 != nil) {
+            print("\(player.playerName)")
+        } else {
+            print("Unable to retrieve the player's infromation, please restart.")
+        }
+    }
     func presentMenu() {
         print("\n1. Player 1 choose your name")
         player1 = createPlayer()
         print("\n1. Player 2 choose your name")
         player2 = createPlayer()
         
-      chooseCharacters()
+        chooseCharacters()
     }
     func createPlayer() -> Player {
         if let choice = readLine(), !choice.isEmpty {
@@ -30,7 +37,7 @@ class PlayerManager {
         }
     }
     func charactersStats(player: Player) {
-        print("\(player.team)")
+        print("\(player.team.description)")
     }
     func chooseCharacters() {
         print("Characters selection"
@@ -48,31 +55,29 @@ class PlayerManager {
     }
 //    deballer optionnel plus class pour chaque armes
     func playerTeamCreation(player: Player) {
-        print("\n \(player.playerName) it's your turn to choose"
+        print("\n \(unwrapPlayers(player: player)) it's your turn to choose"
             + "\n To choose press 1 for The Fighter, 2 for The Wizard"
             + "\n                 3 for The Colossus, 4 for The Dwarf")
         if let choice = readLine() {
             switch choice {
             case "1":
-                print("\(player.playerName) Choose your Fighter's name")
+                print(" \(unwrapPlayers(player: player)) Choose your Fighter's name")
                 player.team.append(createFighterPlayer())
             case "2":
-                print("\(player.playerName) Choose your Wizard's name")
+                print(" \(unwrapPlayers(player: player)) Choose your Wizard's name")
                 player.team.append(createWizardPlayer())
             case "3":
-                print("\(player.playerName) Choose your Colossus's name")
+                print(" \(unwrapPlayers(player: player)) Choose your Colossus's name")
                 player.team.append(createColossusPlayer())
             case "4":
-                print("\(player.playerName) Choose your Dwarf's name")
+                print(" \(unwrapPlayers(player: player)) Choose your Dwarf's name")
                 player.team.append(createDwarfPlayer())
             default:
-                print("I don't understand, \(player.playerName) please restart")
+                print("I don't understand, \(unwrapPlayers(player: player)) please restart")
                 playerTeamCreation(player: player)
             }
-//            to create a certain number of characters
         }
-        //faire un boucle while
-        if player.team.count < 3  {
+        while player.team.count < 3  {
             playerTeamCreation(player: player)
         }
     }
