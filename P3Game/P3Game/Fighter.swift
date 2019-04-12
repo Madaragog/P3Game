@@ -10,6 +10,6 @@ import Foundation
 
 class Fighter: Characters {
     init(name: String) {
-        super.init(type: "Fighter", lp: 100, weapon: Weapon(name: "Sword", damage: 15), name: name)
+        super.init(type: "Fighter", lp: 100, weapon: Sword.init(name: "Sword", damage: 15), name: name)
     }
 }
