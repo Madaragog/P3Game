@@ -37,7 +37,16 @@ class PlayerManager: ProtocolUnwrapedPlayers {
         }
     }
     func charactersStats(player: Player) {
-        print("\(player.team.description)")
+//        print("\(player.team.description)
+            print("\n \(player.playerName) \(player.team[0].type)'s : \(player.team[0].name)   |    \(player.team[1].type)'s : \(player.team[1].name)    |   \(player.team[2].type)'s : \(player.team[2].name)"
+                + "\n Life : \(player.team[0].lp)         |   \(player.team[1].lp)              |   \(player.team[2].lp)"
+                + "\n Weapon : \(player.team[0].weapon.name)       |   \(player.team[1].weapon.name)     |   \(player.team[2].weapon.name)"
+                + "\n Weapon damage : \(player.team[0].weapon.damage)   |   \(player.team[1].weapon.damage)              |   \(player.team[2].weapon.damage)"
+        
+        
+        
+            )
+        
     }
     func chooseCharacters() {
         print("Characters selection"
@@ -47,7 +56,8 @@ class PlayerManager: ProtocolUnwrapedPlayers {
             + "\n The Colossus (life point: 120, weapon: Mace, weapon damage: 16)"
             + "\n The Dwarf (life point: 80, weapon: Axe, weapon damage: 15)"
             + "\n The Wizard can only choose a comrade to heal"
-            + "\n ************************************************************")
+            + "\n ************************************************************"
+            + "\n                                                             ")
             playerTeamCreation(player: player1!)
             playerTeamCreation(player: player2!)
             charactersStats(player: player1!)
