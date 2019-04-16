@@ -17,7 +17,6 @@
 		8279F962225A257F00CCD54C /* Fight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8279F961225A257F00CCD54C /* Fight.swift */; };
 		829A1A82224000F400E1E2E0 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829A1A81224000F400E1E2E0 /* main.swift */; };
 		829A1A892240012D00E1E2E0 /* Introduction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829A1A882240012D00E1E2E0 /* Introduction.swift */; };
-		82B55C772260D0BD0057FBBB /* ProtocolUnwrapPlayers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B55C762260D0BD0057FBBB /* ProtocolUnwrapPlayers.swift */; };
 		82B55C792260ED600057FBBB /* Sword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B55C782260ED600057FBBB /* Sword.swift */; };
 		82B55C7B2260EE420057FBBB /* MagicStick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B55C7A2260EE420057FBBB /* MagicStick.swift */; };
 		82B55C7D2260EE4E0057FBBB /* Mace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B55C7C2260EE4E0057FBBB /* Mace.swift */; };
@@ -49,7 +48,6 @@
 		829A1A7E224000F400E1E2E0 /* P3Game */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = P3Game; sourceTree = BUILT_PRODUCTS_DIR; };
 		829A1A81224000F400E1E2E0 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		829A1A882240012D00E1E2E0 /* Introduction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Introduction.swift; sourceTree = "<group>"; };
-		82B55C762260D0BD0057FBBB /* ProtocolUnwrapPlayers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolUnwrapPlayers.swift; sourceTree = "<group>"; };
 		82B55C782260ED600057FBBB /* Sword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sword.swift; sourceTree = "<group>"; };
 		82B55C7A2260EE420057FBBB /* MagicStick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicStick.swift; sourceTree = "<group>"; };
 		82B55C7C2260EE4E0057FBBB /* Mace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mace.swift; sourceTree = "<group>"; };
@@ -92,7 +90,6 @@
 				822B6A1A22481F7E003BCF4A /* Characters.swift */,
 				82D8C9682245748100449379 /* Player.swift */,
 				8279F95F225500FE00CCD54C /* PlayerManager.swift */,
-				82B55C762260D0BD0057FBBB /* ProtocolUnwrapPlayers.swift */,
 				8279F9552254FFAA00CCD54C /* Weapon.swift */,
 				82B55C782260ED600057FBBB /* Sword.swift */,
 				82B55C7A2260EE420057FBBB /* MagicStick.swift */,
@@ -181,7 +178,6 @@
 				82B55C7D2260EE4E0057FBBB /* Mace.swift in Sources */,
 				822B6A1B22481F7E003BCF4A /* Characters.swift in Sources */,
 				82B55C7F2260EE570057FBBB /* Axe.swift in Sources */,
-				82B55C772260D0BD0057FBBB /* ProtocolUnwrapPlayers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -14,7 +14,7 @@ class Characters {
     let lp: Int
     let weapon: Weapon
     var name: String
-    
+//    faire fonction string pour characteristique en print
     init(type: String, lp: Int, weapon: Weapon, name: String) {
         self.type = type
         self.lp = lp
