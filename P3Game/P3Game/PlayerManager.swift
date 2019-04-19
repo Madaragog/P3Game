@@ -31,9 +31,9 @@ class PlayerManager {
         }
     }
     func charactersStats(player: Player) {
-        print("\n \(player.playerName) \(player.team[0].type)'s : \(player.team[0].name); Life : \(player.team[0].lp); Weapon : \(player.team[0].weapon.name); Weapon damage : \(player.team[0].weapon.damage)"
-            + "\n \(player.playerName) \(player.team[1].type)'s : \(player.team[1].name); Life : \(player.team[1].lp); Weapon : \(player.team[1].weapon.name); Weapon damage : \(player.team[1].weapon.damage)"
-            + "\n \(player.playerName) \(player.team[2].type)'s : \(player.team[2].name); Life : \(player.team[2].lp); Weapon : \(player.team[2].weapon.name); Weapon damage : \(player.team[2].weapon.damage)")
+        print("\n \(player.playerName) \(player.team[0].type) : \(player.team[0].name); Life : \(player.team[0].lp); Weapon : \(player.team[0].weapon.name); Weapon damage : \(player.team[0].weapon.damage)"
+            + "\n \(player.playerName) \(player.team[1].type) : \(player.team[1].name); Life : \(player.team[1].lp); Weapon : \(player.team[1].weapon.name); Weapon damage : \(player.team[1].weapon.damage)"
+            + "\n \(player.playerName) \(player.team[2].type) : \(player.team[2].name); Life : \(player.team[2].lp); Weapon : \(player.team[2].weapon.name); Weapon damage : \(player.team[2].weapon.damage)")
     }
     func chooseCharacters() {
         print("Characters selection"

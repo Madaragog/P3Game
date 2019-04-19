@@ -11,7 +11,7 @@ import Foundation
 
 class Characters {
     let type: String
-    let lp: Int
+    var lp: Int
     let weapon: Weapon
     var name: String
 //    faire fonction string pour characteristique en print
