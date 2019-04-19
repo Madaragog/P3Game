@@ -9,7 +9,7 @@
 import Foundation
 
 class Axe: Weapon {
-    override init(name: String, damage: Int) {
+    init() {
         super.init(name: "Axe", damage: 15)
     }
 }

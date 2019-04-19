@@ -10,7 +10,7 @@ import Foundation
 
 
 class MagicStick: Weapon {
-    override init(name: String, damage: Int) {
+    init() {
         super.init(name: "Magic Stick", damage: 10)
     }
 }

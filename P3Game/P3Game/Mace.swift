@@ -10,7 +10,7 @@
 import Foundation
 
 class Mace: Weapon {
-    override init(name: String, damage: Int) {
+    init() {
         super.init(name: "Mace", damage: 16)
     }
 }
