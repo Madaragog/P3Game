@@ -10,13 +10,42 @@ import Foundation
 
 
 class Fight {
-    func attack() {
-        
+    func attack(player: Player) {
+        print("Please choose someone in your team to attack"
+            + "\n To attack \(player.team[0].name) press 1; \(player.team[1].name) press 2; \(player.team[2].name) press 3")
+        if let choice = readLine() {
+            switch choice {
+            case "1":
+                if player.team[0].type == "Fighter" {
+                    
+                } else {
+                    attack(player: player)
+                }
+            case "2":
+                if player.team[1].type == "Colossus" {
+                    
+                } else {
+                    attack(player: player)
+                }
+            case "3":
+                if player.team[2].type == "Dwarf" {
+                    
+                } else {
+                    attack(player: player)
+                }
+            default:
+                print("You made a mistake please retry")
+                attack(player: player)
+            }
+        }
+    }
+    func fighterAttack(player : Player) {
+        print("\(player.playerName) please choose an oponent to atack with \(player.team[0].name)")
     }
     func fightIntroduction(player : Player) {
         print("\n ***********************************************************************"
-                + "\n Now your team is ready, you're gonna have to fight !!!"
-                + "\n \(player.playerName) you start")
+            + "\n Now your team is ready, you're gonna have to fight !!!"
+            + "\n \(player.playerName) you start")
         PlayerManager().charactersStats(player: player)
         print("\(player.playerName) please choose the character you will use"
             + "\n For the \(player.team[0].name) press 1; 2 for \(player.team[1].name) and 3 for the \(player.team[2].name)")
@@ -26,19 +55,19 @@ class Fight {
                 if player.team[0].type == "Wizard" {
                     healComrade(player: player)
                 } else {
-                    print("d")
+                    //                    attack(player: player)
                 }
             case "2":
-                if player.team[0].type == "Wizard" {
+                if player.team[1].type == "Wizard" {
                     healComrade(player: player)
                 } else {
-                    print("d")
+                    //                    attack(player: player)
                 }
             case "3":
-                if player.team[0].type == "Wizard" {
+                if player.team[2].type == "Wizard" {
                     healComrade(player: player)
                 } else {
-                    print("d")
+                    //                    attack(player: player)
                 }
             default:
                 print("You made a mistake please retry")

@@ -53,8 +53,9 @@ class PlayerManager {
                 charactersStats(player: p2)
                 let p = [p1, p2][Int(arc4random_uniform(2))]
                 Fight().fightIntroduction(player: p)
+//                Fight().fightIntroduction(player: p == players[])
                 }
-            }
+        }
     }
 //    deballer optionnel plus class pour chaque armes
     func playerTeamCreation(player: Player) {
