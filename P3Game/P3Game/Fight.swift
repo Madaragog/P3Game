@@ -9,3 +9,11 @@
 import Foundation
 
 
+class Fight {
+    func fightIntroduction(player : Player) {
+        print("\n ***********************************************************************"
+                + "\n Now your team is ready, you're gonna have to fight !!!"
+                + "\n \(player.playerName) you start")
+        
+    }
+}

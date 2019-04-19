@@ -31,11 +31,9 @@ class PlayerManager {
         }
     }
     func charactersStats(player: Player) {
-            print("\n \(player.playerName) \(player.team[0].type)'s : \(player.team[0].name)   |    \(player.team[1].type)'s : \(player.team[1].name)    |   \(player.team[2].type)'s : \(player.team[2].name)"
-                + "\n Life : \(player.team[0].lp)         |   \(player.team[1].lp)              |   \(player.team[2].lp)"
-                + "\n Weapon : \(player.team[0].weapon.name)       |   \(player.team[1].weapon.name)     |   \(player.team[2].weapon.name)"
-                + "\n Weapon damage : \(player.team[0].weapon.damage)   |   \(player.team[1].weapon.damage)              |   \(player.team[2].weapon.damage)"
-            )
+        print("\n \(player.playerName) \(player.team[0].type)'s : \(player.team[0].name); Life : \(player.team[0].lp); Weapon : \(player.team[0].weapon.name); Weapon damage : \(player.team[0].weapon.damage)"
+            + "\n \(player.playerName) \(player.team[1].type)'s : \(player.team[1].name); Life : \(player.team[1].lp); Weapon : \(player.team[1].weapon.name); Weapon damage : \(player.team[1].weapon.damage)"
+            + "\n \(player.playerName) \(player.team[2].type)'s : \(player.team[2].name); Life : \(player.team[2].lp); Weapon : \(player.team[2].weapon.name); Weapon damage : \(player.team[2].weapon.damage)")
     }
     func chooseCharacters() {
         print("Characters selection"
@@ -45,16 +43,18 @@ class PlayerManager {
             + "\n The Colossus (life point: 120, weapon: Mace, weapon damage: 16)"
             + "\n The Dwarf (life point: 80, weapon: Axe, weapon damage: 15)"
             + "\n The Wizard can only choose a comrade to heal"
-            + "\n ************************************************************"
-            + "\n")
+            + "\n "
+            + "\n ***********************************************************************")
         if let p1 = player1 {
             if let p2 = player2 {
                 playerTeamCreation(player: p1)
                 playerTeamCreation(player: p2)
                 charactersStats(player: p1)
                 charactersStats(player: p2)
+                let p = [p1, p2][Int(arc4random_uniform(2))]
+                Fight().fightIntroduction(player: p)
+                }
             }
-        }
     }
 //    deballer optionnel plus class pour chaque armes
     func playerTeamCreation(player: Player) {
