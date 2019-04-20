@@ -10,11 +10,25 @@ import Foundation
 
 
 class Fight {
-    func fighterAttack(player: Player, opponent: Opponent) {
-        print("Please choose who you're gonna attack"
-            + "\n Press 1 to attack \(a)")
+    func fighterAttack(player: Player, opponent: Player) {
+        print("Please choose who you're gonna attack with \(player.team[0].name)"
+            + "\n Press 1 to attack \(opponent.team[0].name), 2 for \(opponent.team[1].name) and 3 for \(opponent.team[2].name)")
+        if let choice = readLine() {
+            switch choice {
+            case "1":
+                opponent.team[0].lp -= player.team[0].weapon.damage
+                print("\(opponent.team[0].lp)")
+            case "2":
+                print("efe")
+            case "3":
+                print("efe")
+            default:
+                print("You made a mistake please retry")
+                fighterAttack(player: player, opponent: opponent)
+            }
+        }
     }
-    func fightIntroduction(player : Player) {
+    func fightIntroduction(player : Player, opponent: Player) {
         print("\n ***********************************************************************"
             + "\n Now your team is ready, you're gonna have to fight !!!"
             + "\n \(player.playerName) you start")
@@ -25,7 +39,7 @@ class Fight {
             switch choice {
             case "1":
                 if player.team[0].type == "Fighter" {
-                    
+                    fighterAttack(player: player, opponent: opponent)
                 } else {
                     if player.team[0].type == "Colossus" {
                         
@@ -61,7 +75,7 @@ class Fight {
                 }
             default:
                 print("You made a mistake please retry")
-                fightIntroduction(player: player)
+                fightIntroduction(player: player, opponent: opponent)
             }
         }
     }

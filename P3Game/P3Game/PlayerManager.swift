@@ -12,7 +12,7 @@ import Foundation
 class PlayerManager {
     var player1: Player?
     var player2: Player?
-    var opponent: Opponent?
+    var opponent: Player?
     
     func presentMenu() {
         print("\n1. Player 1 choose your name")
@@ -52,18 +52,16 @@ class PlayerManager {
                 charactersStats(player: p1)
                 charactersStats(player: p2)
                 let p = [p1, p2][Int(arc4random_uniform(2))]
-                Fight().fightIntroduction(player: p)
                 if p.playerName == p1.playerName {
                     let opponent = p2
-                    Fight().fightIntroduction(player: opponent)
+                    Fight().fightIntroduction(player: p, opponent: opponent)
                 } else {
                     let opponent = p1
-                    Fight().fightIntroduction(player: opponent)
+                    Fight().fightIntroduction(player: p, opponent: opponent)
                 }
             }
         }
     }
-//    deballer optionnel plus class pour chaque armes
     func playerTeamCreation(player: Player) {
         print("\n \(player.playerName) it's your turn to choose"
             + "\n To choose press 1 for The Fighter, 2 for The Wizard"
