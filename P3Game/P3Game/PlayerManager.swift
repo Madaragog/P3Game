@@ -12,7 +12,7 @@ import Foundation
 class PlayerManager {
     var player1: Player?
     var player2: Player?
-    
+    var opponent: Opponent?
     
     func presentMenu() {
         print("\n1. Player 1 choose your name")
@@ -20,7 +20,7 @@ class PlayerManager {
         print("\n1. Player 2 choose your name")
         player2 = createPlayer()
         
-        chooseCharacters()
+        playerDevelopment()
     }
     func createPlayer() -> Player {
         if let choice = readLine(), !choice.isEmpty {
@@ -35,7 +35,7 @@ class PlayerManager {
             + "\n \(player.playerName) \(player.team[1].type) : \(player.team[1].name); Life : \(player.team[1].lp); Weapon : \(player.team[1].weapon.name); Weapon damage : \(player.team[1].weapon.damage)"
             + "\n \(player.playerName) \(player.team[2].type) : \(player.team[2].name); Life : \(player.team[2].lp); Weapon : \(player.team[2].weapon.name); Weapon damage : \(player.team[2].weapon.damage)")
     }
-    func chooseCharacters() {
+    func playerDevelopment() {
         print("Characters selection"
             + "\n Each of you will have to choose and name 3 characters between :"
             + "\n The Fighter (life point: 100, weapon: Sword, weapon damage: 15)"
@@ -53,8 +53,14 @@ class PlayerManager {
                 charactersStats(player: p2)
                 let p = [p1, p2][Int(arc4random_uniform(2))]
                 Fight().fightIntroduction(player: p)
-//                Fight().fightIntroduction(player: p == players[])
+                if p.playerName == p1.playerName {
+                    let opponent = p2
+                    Fight().fightIntroduction(player: opponent)
+                } else {
+                    let opponent = p1
+                    Fight().fightIntroduction(player: opponent)
                 }
+            }
         }
     }
 //    deballer optionnel plus class pour chaque armes
