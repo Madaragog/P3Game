@@ -58,7 +58,7 @@ class PlayerManager {
                         + "\n Now your team is ready, you're gonna have to fight !!!"
                         + "\n \(p.playerName) you start")
                     Fight().fightDevelopment(player: p, opponent: opponent)
-                    let opponentTeamLife = opponent.team[0].lp + opponent.team[0].lp + opponent.team[2].lp
+                    let opponentTeamLife = opponent.team[0].lp + opponent.team[1].lp + opponent.team[2].lp
                     while opponentTeamLife >= 1 {
                         if p.playerName == p1.playerName {
                             opponent = p1
@@ -70,26 +70,26 @@ class PlayerManager {
                             Fight().fightDevelopment(player: p, opponent: opponent)
                         }
                     }
-                print("\(p.playerName) Congratulation, you won ;) !!! \(opponent.playerName) don't worry you can have your revenge xP")
+                print("\(p.playerName) Congratulation, you won ;) !!! \(opponent.playerName) don't worry you can have your revenge xP !")
                 } else {
                     var opponent = p1
                     print("\n ***********************************************************************"
                         + "\n Now your team is ready, you're gonna have to fight !!!"
                         + "\n \(p.playerName) you start")
                     Fight().fightDevelopment(player: p, opponent: opponent)
-                    let opponentTeamLife = opponent.team[0].lp + opponent.team[0].lp + opponent.team[2].lp
+                    let opponentTeamLife = opponent.team[0].lp + opponent.team[1].lp + opponent.team[2].lp
                     while opponentTeamLife >= 1 {
                         if p.playerName == p2.playerName {
-                            opponent = p2
-                            p = p1
-                            Fight().fightDevelopment(player: p, opponent: opponent)
-                        } else {
-                            opponent = p1
-                            p = p2
-                            Fight().fightDevelopment(player: p, opponent: opponent)
-                        }
+                                opponent = p2
+                                p = p1
+                                Fight().fightDevelopment(player: p, opponent: opponent)
+                            } else {
+                                opponent = p1
+                                p = p2
+                                Fight().fightDevelopment(player: p, opponent: opponent)
+                            }
                     }
-                    print("\(p.playerName) Congratulation, you won ;) !!! \(opponent.playerName) don't worry you can have your revenge xP")
+                    print("\(p.playerName) Congratulation, you won ;) !!! \(opponent.playerName) don't worry you can have your revenge xP !")
                 }
             }
         }
