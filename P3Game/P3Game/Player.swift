@@ -17,4 +17,13 @@ class Player {
     init(playerName: String) {
         self.playerName = playerName
     }
+    
+    func isTeamAlive() -> Bool {
+        for char in team {
+            if char.isAlive {
+                return true
+            }
+        }
+        return false
+    }
 }

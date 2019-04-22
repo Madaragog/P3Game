@@ -11,6 +11,6 @@ import Foundation
 
 class MagicStick: Weapon {
     init() {
-        super.init(name: "Magic Stick", damage: 10)
+        super.init(name: "Magic Stick", damage: -10)
     }
 }

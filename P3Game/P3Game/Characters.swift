@@ -14,11 +14,21 @@ class Characters {
     var lp: Int
     let weapon: Weapon
     var name: String
-//    faire fonction string pour characteristique en print
+    var isAlive: Bool {
+        return lp > 0
+    }
+//    didset pour lp
+//    utilisation du getteur de isAlive
     init(type: String, lp: Int, weapon: Weapon, name: String) {
         self.type = type
         self.lp = lp
         self.weapon = weapon
         self.name = name
     }
+    
+    func attack(opponent: Characters) {
+        opponent.lp -= weapon.damage
+    }
+    
+    
 }
