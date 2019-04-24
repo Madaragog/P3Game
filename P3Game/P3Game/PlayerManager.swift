@@ -30,11 +30,20 @@ class PlayerManager {
             return createPlayer()
         }
     }
+    
+    
     func charactersStats(player: Player) {
-        print("\n \(player.playerName) \(player.team[0].type) : \(player.team[0].name); Life : \(player.team[0].lp); Weapon : \(player.team[0].weapon.name); Weapon damage : \(player.team[0].weapon.damage)"
-            + "\n \(player.playerName) \(player.team[1].type) : \(player.team[1].name); Life : \(player.team[1].lp); Weapon : \(player.team[1].weapon.name); Weapon damage : \(player.team[1].weapon.damage)"
-            + "\n \(player.playerName) \(player.team[2].type) : \(player.team[2].name); Life : \(player.team[2].lp); Weapon : \(player.team[2].weapon.name); Weapon damage : \(player.team[2].weapon.damage)")
+        if player.team[0].isAlive {
+            print("\n \(player.playerName) \(player.team[0].type) : \(player.team[0].name); Life : \(player.team[0].lp); Weapon : \(player.team[0].weapon.name); Weapon damage : \(player.team[0].weapon.damage)")
+        }
+        if player.team[1].isAlive {
+            print("\n \(player.playerName) \(player.team[1].type) : \(player.team[1].name); Life : \(player.team[1].lp); Weapon : \(player.team[1].weapon.name); Weapon damage : \(player.team[1].weapon.damage)")
+        }
+        if player.team[2].isAlive {
+            print("\n \(player.playerName) \(player.team[2].type) : \(player.team[2].name); Life : \(player.team[2].lp); Weapon : \(player.team[2].weapon.name); Weapon damage : \(player.team[2].weapon.damage)")
+        }
     }
+    
     func playerDevelopment() {
         print("Characters selection"
             + "\n Each of you will have to choose and name 3 characters between :"
@@ -51,61 +60,17 @@ class PlayerManager {
                 var currentPlayer = p1
                 var nextPlayer = p2
 //                faire une boucle
+                playerTeamCreation(player: currentPlayer)
+                playerTeamCreation(player: nextPlayer)
+                
                 while p1.isTeamAlive() && p2.isTeamAlive() {
                     Fight().attack(player: currentPlayer, opponent: nextPlayer)
                     swap(&currentPlayer, &nextPlayer)
+                    
                 }
                 
                 
                 
-                
-                
-                
-                
-                playerTeamCreation(player: p1)
-                playerTeamCreation(player: p2)
-                charactersStats(player: p1)
-                charactersStats(player: p2)
-                var p = [p1, p2][Int(arc4random_uniform(2))]
-                if p.playerName == p1.playerName {
-                    var opponent = p2
-                    print("\n ***********************************************************************"
-                        + "\n Now your team is ready, you're gonna have to fight !!!"
-                        + "\n \(p.playerName) you start")
-                    Fight().attack(player: p, opponent: opponent)
-                    let opponentTeamLife = opponent.team[0].lp + opponent.team[1].lp + opponent.team[2].lp
-                    while opponentTeamLife >= 1 {
-                        if p.playerName == p1.playerName {
-                            opponent = p1
-                            p = p2
-                            Fight().attack(player: p, opponent: opponent)
-                        } else {
-                            opponent = p2
-                            p = p1
-                            Fight().attack(player: p, opponent: opponent)
-                        }
-                    }
-                print("\(p.playerName) Congratulation, you won ;) !!! \(opponent.playerName) don't worry you can have your revenge xP !")
-                } else {
-                    var opponent = p1
-                    print("\n ***********************************************************************"
-                        + "\n Now your team is ready, you're gonna have to fight !!!"
-                        + "\n \(p.playerName) you start")
-                    Fight().attack(player: p, opponent: opponent)
-                    let opponentTeamLife = opponent.team[0].lp + opponent.team[1].lp + opponent.team[2].lp
-                    while opponentTeamLife >= 1 {
-                        if p.playerName == p2.playerName {
-                                opponent = p2
-                                p = p1
-                                Fight().attack(player: p, opponent: opponent)
-                            } else {
-                                opponent = p1
-                                p = p2
-                                Fight().attack(player: p, opponent: opponent)
-                            }
-                    }
-                    print("\(p.playerName) Congratulation, you won ;) !!! \(opponent.playerName) don't worry you can have your revenge xP !")
-                }
             }
         }
     }

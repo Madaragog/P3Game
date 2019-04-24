@@ -16,7 +16,8 @@ class Fight {
         for char in player.team {
 //            faire un for et index calcule dans print
         }
-        print("\(player.playerName) please choose the character you will use"
+        print("\n"
+            + "\(player.playerName) please choose the character you will use"
             + "\n For the \(player.team[0].name) press 1; 2 for \(player.team[1].name) and 3 for the \(player.team[2].name)")
         let attacker = getCharacter(player: player)
         if attacker is Wizard {
@@ -30,16 +31,25 @@ class Fight {
             let opponentChar = getCharacter(player: opponent)
             attacker.attack(opponent: opponentChar)
         }
-        
     }
     
     func getCharacter(player: Player) -> Characters {
         if let choice = readLine() {
             if let index = Int(choice) {
-                return player.team[index - 1]
+                if index == 1 {
+                    return player.team[index - 1]
+                } else {
+                    if index == 2 {
+                        return player.team[index - 1]
+                    } else {
+                        if index == 3 {
+                            return player.team[index - 1]
+                        }
+                    }
+                }
             }
         }
-        print("error please retry")
+        print("the command you entered is unavailable please retry")
         return getCharacter(player: player)
     }
 }
