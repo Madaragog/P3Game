@@ -66,7 +66,6 @@ class PlayerManager {
                 while p1.isTeamAlive() && p2.isTeamAlive() {
                     Fight().attack(player: currentPlayer, opponent: nextPlayer)
                     swap(&currentPlayer, &nextPlayer)
-                    
                 }
                 
                 
