@@ -7,3 +7,10 @@
 //
 
 import Foundation
+
+
+class Dagger: Weapon {
+    init() {
+        super.init(name: "Dagger", damage: 13)
+    }
+}

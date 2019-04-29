@@ -7,3 +7,10 @@
 //
 
 import Foundation
+
+
+class Nunchaku: Weapon {
+    init() {
+        super.init(name: "Nunchaku", damage: 10)
+    }
+}

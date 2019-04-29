@@ -7,3 +7,10 @@
 //
 
 import Foundation
+
+
+class MagicalGrimoire : Weapon {
+    init() {
+        super.init(name: "MagicalGrimoire ", damage: -15)
+    }
+}

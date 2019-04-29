@@ -7,3 +7,10 @@
 //
 
 import Foundation
+
+
+class Warhammer: Weapon {
+    init() {
+        super.init(name: "Warhammer", damage: 14)
+    }
+}

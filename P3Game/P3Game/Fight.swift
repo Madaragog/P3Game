@@ -10,6 +10,13 @@ import Foundation
 
 
 class Fight {
+    func overHealedVerif(player: Player) {
+        for char in player.team {
+            if char.lp > char.maxLp {
+                char.lp = char.maxLp
+            }
+        }
+    }
     
     func attack(player: Player, opponent: Player) {
         PlayerManager().charactersStats(player: player)
@@ -25,11 +32,17 @@ class Fight {
             print("\(player.playerName) please choose the character to heal")
             for char in player.team {
                 if char.isAlive == true {
-                    print("For the \(char.name), please press \(char.characterSelection)")
+                    if char.lp != char.maxLp {
+                        print("For the \(char.name), please press \(char.characterSelection)")
+                        let opponentChar = getCharacter(player: player)
+                        attacker.attack(opponent: opponentChar)
+                        overHealedVerif(player: player)
+                    } else {
+                        print("Sorry but all your characters have max life so you can't heal them, please choose someone you can attack with !")
+                        attack(player: player, opponent: opponent)
+                    }
                 }
             }
-            let opponentChar = getCharacter(player: player)
-            attacker.attack(opponent: opponentChar)
         } else {
             print("Please choose who you're gonna attack")
             for charOp in opponent.team {

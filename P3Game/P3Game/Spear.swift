@@ -9,3 +9,8 @@
 import Foundation
 
 
+class Spear: Weapon {
+    init() {
+        super.init(name: "Spear", damage: 13)
+    }
+}

@@ -7,3 +7,10 @@
 //
 
 import Foundation
+
+
+class MagicWand: Weapon {
+    init() {
+        super.init(name: "MagicWand", damage: -7)
+    }
+}

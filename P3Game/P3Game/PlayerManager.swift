@@ -31,7 +31,6 @@ class PlayerManager {
         }
     }
     
-    
     func charactersStats(player: Player) {
         for char in player.team {
             if char.isAlive == true {

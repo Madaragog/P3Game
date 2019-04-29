@@ -11,6 +11,6 @@ import Foundation
 
 class Colossus: Characters {
     init(name: String) {
-        super.init(type: "Colossus", lp: 120, weapon: Mace(), name: name, characterSelection: "3")
+        super.init(type: "Colossus", lp: 120, maxLp: 120, weapon: Mace(), weapon1: Warhammer(), weapon2: GreatSword(), name: name, characterSelection: "3")
     }
 }
