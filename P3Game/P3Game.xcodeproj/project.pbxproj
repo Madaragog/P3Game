@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		822B6A1B22481F7E003BCF4A /* Characters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822B6A1A22481F7E003BCF4A /* Characters.swift */; };
+		823D04F32277043C00F771AD /* Spear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823D04F22277043C00F771AD /* Spear.swift */; };
+		823D04F52277047300F771AD /* Nunchaku.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823D04F42277047300F771AD /* Nunchaku.swift */; };
+		823D04F7227704B800F771AD /* MagicWand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823D04F6227704B800F771AD /* MagicWand.swift */; };
+		823D04F92277052000F771AD /* MagicalGrimoire .swift in Sources */ = {isa = PBXBuildFile; fileRef = 823D04F82277052000F771AD /* MagicalGrimoire .swift */; };
+		823D04FB2277055000F771AD /* Warhammer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823D04FA2277055000F771AD /* Warhammer.swift */; };
+		823D04FD2277058E00F771AD /* GreatSword .swift in Sources */ = {isa = PBXBuildFile; fileRef = 823D04FC2277058E00F771AD /* GreatSword .swift */; };
+		823D04FF227705F300F771AD /* Double-edgedAxe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823D04FE227705F300F771AD /* Double-edgedAxe.swift */; };
+		823D05012277062D00F771AD /* Dagger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823D05002277062D00F771AD /* Dagger.swift */; };
 		8279F9562254FFAA00CCD54C /* Weapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8279F9552254FFAA00CCD54C /* Weapon.swift */; };
 		8279F9582254FFFC00CCD54C /* Fighter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8279F9572254FFFC00CCD54C /* Fighter.swift */; };
 		8279F95A2255002B00CCD54C /* Wizard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8279F9592255002B00CCD54C /* Wizard.swift */; };
@@ -38,6 +46,14 @@
 
 /* Begin PBXFileReference section */
 		822B6A1A22481F7E003BCF4A /* Characters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Characters.swift; sourceTree = "<group>"; };
+		823D04F22277043C00F771AD /* Spear.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spear.swift; sourceTree = "<group>"; };
+		823D04F42277047300F771AD /* Nunchaku.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nunchaku.swift; sourceTree = "<group>"; };
+		823D04F6227704B800F771AD /* MagicWand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicWand.swift; sourceTree = "<group>"; };
+		823D04F82277052000F771AD /* MagicalGrimoire .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MagicalGrimoire .swift"; sourceTree = "<group>"; };
+		823D04FA2277055000F771AD /* Warhammer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Warhammer.swift; sourceTree = "<group>"; };
+		823D04FC2277058E00F771AD /* GreatSword .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GreatSword .swift"; sourceTree = "<group>"; };
+		823D04FE227705F300F771AD /* Double-edgedAxe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double-edgedAxe.swift"; sourceTree = "<group>"; };
+		823D05002277062D00F771AD /* Dagger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dagger.swift; sourceTree = "<group>"; };
 		8279F9552254FFAA00CCD54C /* Weapon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weapon.swift; sourceTree = "<group>"; };
 		8279F9572254FFFC00CCD54C /* Fighter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fighter.swift; sourceTree = "<group>"; };
 		8279F9592255002B00CCD54C /* Wizard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wizard.swift; sourceTree = "<group>"; };
@@ -96,9 +112,17 @@
 				82B55C7C2260EE4E0057FBBB /* Mace.swift */,
 				82B55C7E2260EE570057FBBB /* Axe.swift */,
 				8279F9572254FFFC00CCD54C /* Fighter.swift */,
+				823D04F22277043C00F771AD /* Spear.swift */,
+				823D04F42277047300F771AD /* Nunchaku.swift */,
 				8279F9592255002B00CCD54C /* Wizard.swift */,
+				823D04F6227704B800F771AD /* MagicWand.swift */,
+				823D04F82277052000F771AD /* MagicalGrimoire .swift */,
 				8279F95B2255005000CCD54C /* Colossus.swift */,
+				823D04FA2277055000F771AD /* Warhammer.swift */,
+				823D04FC2277058E00F771AD /* GreatSword .swift */,
 				8279F95D225500A000CCD54C /* Dwarf.swift */,
+				823D04FE227705F300F771AD /* Double-edgedAxe.swift */,
+				823D05002277062D00F771AD /* Dagger.swift */,
 				8279F961225A257F00CCD54C /* Fight.swift */,
 			);
 			path = P3Game;
@@ -164,10 +188,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				8279F962225A257F00CCD54C /* Fight.swift in Sources */,
+				823D04F32277043C00F771AD /* Spear.swift in Sources */,
+				823D04F52277047300F771AD /* Nunchaku.swift in Sources */,
+				823D04FF227705F300F771AD /* Double-edgedAxe.swift in Sources */,
 				8279F960225500FE00CCD54C /* PlayerManager.swift in Sources */,
 				8279F9562254FFAA00CCD54C /* Weapon.swift in Sources */,
 				8279F9582254FFFC00CCD54C /* Fighter.swift in Sources */,
+				823D04FB2277055000F771AD /* Warhammer.swift in Sources */,
+				823D04FD2277058E00F771AD /* GreatSword .swift in Sources */,
 				8279F95E225500A000CCD54C /* Dwarf.swift in Sources */,
+				823D05012277062D00F771AD /* Dagger.swift in Sources */,
+				823D04F7227704B800F771AD /* MagicWand.swift in Sources */,
 				82D8C9692245748100449379 /* Player.swift in Sources */,
 				829A1A82224000F400E1E2E0 /* main.swift in Sources */,
 				8279F95C2255005000CCD54C /* Colossus.swift in Sources */,
@@ -177,6 +208,7 @@
 				82B55C792260ED600057FBBB /* Sword.swift in Sources */,
 				82B55C7D2260EE4E0057FBBB /* Mace.swift in Sources */,
 				822B6A1B22481F7E003BCF4A /* Characters.swift in Sources */,
+				823D04F92277052000F771AD /* MagicalGrimoire .swift in Sources */,
 				82B55C7F2260EE570057FBBB /* Axe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -17,7 +17,7 @@ class Fight {
         for char in player.team {
 //            faire un for et index calcule dans print
             if char.isAlive == true {
-                print("For the \(char.name) please press \(char.caracterSelection)")
+                print("For the \(char.name) please press \(char.characterSelection)")
             }
         }
         let attacker = getCharacter(player: player)
@@ -25,7 +25,7 @@ class Fight {
             print("\(player.playerName) please choose the character to heal")
             for char in player.team {
                 if char.isAlive == true {
-                    print("For the \(char.name), please press \(char.caracterSelection)")
+                    print("For the \(char.name), please press \(char.characterSelection)")
                 }
             }
             let opponentChar = getCharacter(player: player)
@@ -34,7 +34,7 @@ class Fight {
             print("Please choose who you're gonna attack")
             for charOp in opponent.team {
                 if charOp.isAlive == true {
-                    print("For the \(charOp.name), please press \(charOp.caracterSelection)")
+                    print("For the \(charOp.name), please press \(charOp.characterSelection)")
                 }
             }
             let opponentChar = getCharacter(player: opponent)

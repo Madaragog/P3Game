@@ -17,15 +17,15 @@ class Characters {
     var isAlive: Bool {
         return lp > 0
     }
-    let caracterSelection: String
+    let characterSelection: String
 //    didset pour lp
 //    utilisation du getteur de isAlive
-    init(type: String, lp: Int, weapon: Weapon, name: String, caracterSelection: String) {
+    init(type: String, lp: Int, weapon: Weapon, name: String, characterSelection: String) {
         self.type = type
         self.lp = lp
         self.weapon = weapon
         self.name = name
-        self.caracterSelection = caracterSelection
+        self.characterSelection = characterSelection
     }
     
     func attack(opponent: Characters) {

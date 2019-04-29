@@ -33,14 +33,10 @@ class PlayerManager {
     
     
     func charactersStats(player: Player) {
-        if player.team[0].isAlive {
-            print("\n \(player.playerName) \(player.team[0].type) : \(player.team[0].name); Life : \(player.team[0].lp); Weapon : \(player.team[0].weapon.name); Weapon damage : \(player.team[0].weapon.damage)")
-        }
-        if player.team[1].isAlive {
-            print("\n \(player.playerName) \(player.team[1].type) : \(player.team[1].name); Life : \(player.team[1].lp); Weapon : \(player.team[1].weapon.name); Weapon damage : \(player.team[1].weapon.damage)")
-        }
-        if player.team[2].isAlive {
-            print("\n \(player.playerName) \(player.team[2].type) : \(player.team[2].name); Life : \(player.team[2].lp); Weapon : \(player.team[2].weapon.name); Weapon damage : \(player.team[2].weapon.damage)")
+        for char in player.team {
+            if char.isAlive == true {
+                print("\(player.playerName) \(char.type) : \(char.name); Life : \(char.lp); Weapon : \(char.weapon.name); Weapon damage : \(char.weapon.damage)")
+            }
         }
     }
     
@@ -56,7 +52,6 @@ class PlayerManager {
             + "\n ***********************************************************************")
         if let p1 = player1 {
             if let p2 = player2 {
-                
                 var currentPlayer = p1
                 var nextPlayer = p2
 //                faire une boucle
