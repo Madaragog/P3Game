@@ -10,6 +10,6 @@ import Foundation
 
 class Fighter: Characters {
     init(name: String) {
-        super.init(type: "Fighter", lp: 100, maxLp: 100, weapon: Sword(), weapon1: Spear(), weapon2: Nunchaku(), name: name, characterSelection: "1")
+        super.init(type: "Fighter", lp: 100, maxLp: 100, weapon: [Sword(), Spear(), Nunchaku()][Int(arc4random_uniform(3))], name: name, characterSelection: "1")
     }
 }

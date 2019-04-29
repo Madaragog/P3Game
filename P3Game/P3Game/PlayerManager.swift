@@ -102,6 +102,7 @@ class PlayerManager {
             return createFighterPlayer()
         }
     }
+//    weapon: Sword(), weapon1: Spear(), weapon2: Nunchaku()
     func createWizardPlayer() -> Wizard {
         if let choice = readLine(), !choice.isEmpty {
             return Wizard(name: choice)
