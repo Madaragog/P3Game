@@ -26,13 +26,15 @@ class Characters {
     var isAlive: Bool {
         return lp > 0
     }
+    var specialSkill : Int
     
-    init(type: String, lp: Int, maxLp: Int, weapon: Weapon, name: String) {
+    init(type: String, lp: Int, maxLp: Int, weapon: Weapon, name: String, specialSkill: Int) {
         self.type = type
         self.lp = lp
         self.maxLp = maxLp
         self.weapon = weapon
         self.name = name
+        self.specialSkill = specialSkill
     }
     
     func attack(opponent: Characters) {

@@ -10,6 +10,6 @@ import Foundation
 
 class Wizard: Characters {
     init(name: String) {
-        super.init(type: "Wizard", lp: 70, maxLp: 70, weapon: [MagicStick(), MagicWand(), MagicalGrimoire()][Int(arc4random_uniform(3))], name: name)
+        super.init(type: "Wizard", lp: 70, maxLp: 70, weapon: [MagicStick(), MagicWand(), MagicalGrimoire()][Int(arc4random_uniform(3))], name: name, specialSkill: -20)
     }
 }
