@@ -17,13 +17,7 @@ class Introduction {
             +   "\n You have to play each your turn."
             +   "\n When you are ready, FIGHT !"
             +   "\n GOOD LUCK 😎, press c to continue")
-        if let c = readLine() {
-            switch c {
-            case "c":
-                PlayerManager().presentMenu()
-            default:
-                print("I don't understand")
-            }
-        }
+        
+            PlayerManager().presentMenu()
     }
 }

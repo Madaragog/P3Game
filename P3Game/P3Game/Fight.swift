@@ -10,33 +10,32 @@ import Foundation
 
 
 class Fight {
-    func overHealedVerif(player: Player) {
+    
+    func charactersStats(player: Player) {
         for char in player.team {
-            if char.lp > char.maxLp {
-                char.lp = char.maxLp
+            if char.isAlive {
+                print("\(player.playerName) \(char.type) : \(char.name); Life : \(char.lp); Weapon : \(char.weapon.name); Weapon damage : \(char.weapon.damage)")
             }
         }
     }
     
     func attack(player: Player, opponent: Player) {
-        PlayerManager().charactersStats(player: player)
+        charactersStats(player: player)
         print("\(player.playerName) please choose the character you will use")
-        for char in player.team {
-//            faire un for et index calcule dans print
-            if char.isAlive == true {
-                print("For the \(char.name) please press \(char.characterSelection)")
+        for index in player.team.indices {
+            if player.team[index].isAlive {
+                print("For the \(player.team[index].name) please press \(index + 1)")
             }
         }
         let attacker = getCharacter(player: player)
         if attacker is Wizard {
             print("\(player.playerName) please choose the character to heal")
-            for char in player.team {
-                if char.isAlive == true {
-                    if char.lp != char.maxLp {
-                        print("For the \(char.name), please press \(char.characterSelection)")
+            for index in player.team.indices {
+                if player.team[index].isAlive {
+                    if player.team[index].lp != player.team[index].maxLp {
+                        print("For the \(player.team[index].name), please press \(index + 1)")
                         let opponentChar = getCharacter(player: player)
                         attacker.attack(opponent: opponentChar)
-                        overHealedVerif(player: player)
                     } else {
                         print("Sorry but all your characters have max life so you can't heal them, please choose someone you can attack with !")
                         attack(player: player, opponent: opponent)
@@ -45,9 +44,9 @@ class Fight {
             }
         } else {
             print("Please choose who you're gonna attack")
-            for charOp in opponent.team {
-                if charOp.isAlive == true {
-                    print("For the \(charOp.name), please press \(charOp.characterSelection)")
+            for index in opponent.team.indices {
+                if opponent.team[index].isAlive {
+                    print("For the \(opponent.team[index].name), please press \(index + 1)")
                 }
             }
             let opponentChar = getCharacter(player: opponent)
@@ -57,17 +56,9 @@ class Fight {
 
     func getCharacter(player: Player) -> Characters {
         if let choice = readLine() {
-            if let index = Int(choice) {
-                if index == 1 {
+            if let index = Int(choice), player.team.indices.contains(index - 1){
+                if player.team[index - 1].isAlive {
                     return player.team[index - 1]
-                } else {
-                    if index == 2 {
-                        return player.team[index - 1]
-                    } else {
-                        if index == 3 {
-                            return player.team[index - 1]
-                        }
-                    }
                 }
             }
         }

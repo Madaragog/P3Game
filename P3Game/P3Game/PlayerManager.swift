@@ -31,14 +31,6 @@ class PlayerManager {
         }
     }
     
-    func charactersStats(player: Player) {
-        for char in player.team {
-            if char.isAlive == true {
-                print("\(player.playerName) \(char.type) : \(char.name); Life : \(char.lp); Weapon : \(char.weapon.name); Weapon damage : \(char.weapon.damage)")
-            }
-        }
-    }
-    
     func playerDevelopment() {
         print("Characters selection"
             + "\n Each of you will have to choose and name 3 characters between :"
@@ -53,7 +45,7 @@ class PlayerManager {
             if let p2 = player2 {
                 var currentPlayer = p1
                 var nextPlayer = p2
-//                faire une boucle
+
                 playerTeamCreation(player: currentPlayer)
                 playerTeamCreation(player: nextPlayer)
                 

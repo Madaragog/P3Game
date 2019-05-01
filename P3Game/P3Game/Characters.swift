@@ -11,23 +11,28 @@ import Foundation
 
 class Characters {
     let type: String
-    var lp: Int
+    var lp: Int {
+        didSet {
+            if lp > maxLp {
+                lp = maxLp
+            } else if lp < 0{
+                lp = 0
+            }
+        }
+    }
     let maxLp: Int
     let weapon: Weapon
     var name: String
     var isAlive: Bool {
         return lp > 0
     }
-    let characterSelection: String
-//    didset pour lp
-//    utilisation du getteur de isAlive
-    init(type: String, lp: Int, maxLp: Int, weapon: Weapon, name: String, characterSelection: String) {
+    
+    init(type: String, lp: Int, maxLp: Int, weapon: Weapon, name: String) {
         self.type = type
         self.lp = lp
         self.maxLp = maxLp
         self.weapon = weapon
         self.name = name
-        self.characterSelection = characterSelection
     }
     
     func attack(opponent: Characters) {
