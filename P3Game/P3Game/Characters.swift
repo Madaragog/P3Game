@@ -21,7 +21,7 @@ class Characters {
         }
     }
     let maxLp: Int
-    let weapon: Weapon
+    var weapon: Weapon
     var name: String
     var isAlive: Bool {
         return lp > 0

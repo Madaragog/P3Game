@@ -28,6 +28,7 @@ class Fight {
             }
         }
         let attacker = getCharacter(player: player)
+        attacker.weapon = [Axe(), DoubleEdgedAxe(), Dagger()][Int(arc4random_uniform(3))]
         if attacker is Wizard {
             print("\(player.playerName) please choose the character to heal")
             for index in player.team.indices {
