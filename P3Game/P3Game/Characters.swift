@@ -41,5 +41,8 @@ class Characters {
         opponent.lp -= weapon.damage
     }
     
+    func specialAttack(opponent: Characters) {
+        opponent.lp -= specialSkill
+    }
     
 }

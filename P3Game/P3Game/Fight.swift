@@ -30,17 +30,39 @@ class Fight {
         let attacker = getCharacter(player: player)
         attacker.weapon = [Axe(), DoubleEdgedAxe(), Dagger()][Int(arc4random_uniform(3))]
         if attacker is Wizard {
-            print("\(player.playerName) please choose the character to heal")
             for index in player.team.indices {
                 if player.team[index].isAlive {
                     if player.team[index].lp != player.team[index].maxLp {
+                        for _ in 1...5 {
+                            print("Would you like to use your special skill ?"
+                                + "\n press y for yes and n for no")
+                            if let choice = readLine() {
+                                switch choice {
+                                case "y","Y":
+                                    print("\(player.playerName) please choose the character to heal")
+                                    print("For the \(player.team[index].name), please press \(index + 1)")
+                                    let opponentChar = getCharacter(player: player)
+                                    attacker.specialAttack(opponent: opponentChar)
+                                case "n","N":
+                                    print("\(player.playerName) please choose the character to heal")
+                                    print("For the \(player.team[index].name), please press \(index + 1)")
+                                    let opponentChar = getCharacter(player: player)
+                                    attacker.attack(opponent: opponentChar)
+                                default:
+                                    print("I don't understand, \(player.playerName) please restart")
+                                    attack(player: player, opponent: opponent)
+                                }
+                            }
+                        }
+                    } else {
+                        print("\(player.playerName) please choose the character to heal")
                         print("For the \(player.team[index].name), please press \(index + 1)")
                         let opponentChar = getCharacter(player: player)
                         attacker.attack(opponent: opponentChar)
-                    } else {
-                        print("Sorry but all your characters have max life so you can't heal them, please choose someone you can attack with !")
-                        attack(player: player, opponent: opponent)
                     }
+                } else {
+                    print("Sorry but all your characters have max life so you can't heal them, please choose someone you can attack with !")
+                    attack(player: player, opponent: opponent)
                 }
             }
         } else {
