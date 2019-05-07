@@ -22,6 +22,7 @@ class PlayerManager {
         
         playerDevelopment()
     }
+    
     func createPlayer() -> Player {
         if let choice = readLine(), !choice.isEmpty {
             return Player(playerName: choice)
@@ -53,12 +54,17 @@ class PlayerManager {
                     Fight().attack(player: currentPlayer, opponent: nextPlayer)
                     swap(&currentPlayer, &nextPlayer)
                 }
-                
-                
-                
+                if currentPlayer.isTeamAlive() {
+                    print("Congratulation \(currentPlayer.playerName) your are the winner !!!"
+                        + "\n \(nextPlayer.playerName) next time you'll be better ;)")
+                } else {
+                    print("Congratulation \(nextPlayer.playerName) your are the winner !!!"
+                        + "\n \(currentPlayer.playerName) next time you'll be better ;)")
+                }
             }
         }
     }
+    
     func playerTeamCreation(player: Player) {
         print("\n \(player.playerName) it's your turn to choose"
             + "\n To choose press 1 for The Fighter, 2 for The Wizard"
@@ -86,6 +92,7 @@ class PlayerManager {
             playerTeamCreation(player: player)
         }
     }
+    
     func createFighterPlayer() -> Fighter {
         if let choice = readLine(), !choice.isEmpty {
             return Fighter(name: choice)
@@ -94,7 +101,7 @@ class PlayerManager {
             return createFighterPlayer()
         }
     }
-//    weapon: Sword(), weapon1: Spear(), weapon2: Nunchaku()
+
     func createWizardPlayer() -> Wizard {
         if let choice = readLine(), !choice.isEmpty {
             return Wizard(name: choice)
@@ -103,6 +110,7 @@ class PlayerManager {
             return createWizardPlayer()
         }
     }
+    
     func createColossusPlayer() -> Colossus {
         if let choice = readLine(), !choice.isEmpty {
             return Colossus(name: choice)
@@ -111,6 +119,7 @@ class PlayerManager {
             return createColossusPlayer()
         }
     }
+    
     func createDwarfPlayer() -> Dwarf {
         if let choice = readLine(), !choice.isEmpty {
             return Dwarf(name: choice)

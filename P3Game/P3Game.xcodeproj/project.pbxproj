@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8204ABC0228093E000A9E1E9 /* Chest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8204ABBF228093E000A9E1E9 /* Chest.swift */; };
 		822B6A1B22481F7E003BCF4A /* Characters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822B6A1A22481F7E003BCF4A /* Characters.swift */; };
 		823D04F32277043C00F771AD /* Spear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823D04F22277043C00F771AD /* Spear.swift */; };
 		823D04F52277047300F771AD /* Nunchaku.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823D04F42277047300F771AD /* Nunchaku.swift */; };
@@ -45,6 +46,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8204ABBF228093E000A9E1E9 /* Chest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chest.swift; sourceTree = "<group>"; };
 		822B6A1A22481F7E003BCF4A /* Characters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Characters.swift; sourceTree = "<group>"; };
 		823D04F22277043C00F771AD /* Spear.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spear.swift; sourceTree = "<group>"; };
 		823D04F42277047300F771AD /* Nunchaku.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nunchaku.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				823D04FE227705F300F771AD /* DoubleEdgedAxe.swift */,
 				823D05002277062D00F771AD /* Dagger.swift */,
 				8279F961225A257F00CCD54C /* Fight.swift */,
+				8204ABBF228093E000A9E1E9 /* Chest.swift */,
 			);
 			path = P3Game;
 			sourceTree = "<group>";
@@ -208,6 +211,7 @@
 				82B55C792260ED600057FBBB /* Sword.swift in Sources */,
 				82B55C7D2260EE4E0057FBBB /* Mace.swift in Sources */,
 				822B6A1B22481F7E003BCF4A /* Characters.swift in Sources */,
+				8204ABC0228093E000A9E1E9 /* Chest.swift in Sources */,
 				823D04F92277052000F771AD /* MagicalGrimoire .swift in Sources */,
 				82B55C7F2260EE570057FBBB /* Axe.swift in Sources */,
 			);
