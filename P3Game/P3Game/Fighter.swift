@@ -8,6 +8,7 @@
 
 import Foundation
 
+
 class Fighter: Characters {
     init(name: String) {
         super.init(type: "Fighter", lp: 100, maxLp: 100, weapon: Sword(), name: name, specialSkill: 30)

@@ -37,11 +37,11 @@ class Characters {
         self.specialSkill = specialSkill
     }
     
-    func attack(opponent: Characters) {
+    internal func attack(opponent: Characters) {
         opponent.lp -= weapon.damage
     }
     
-    func specialAttack(opponent: Characters) {
+    internal func specialAttack(opponent: Characters) {
         opponent.lp -= specialSkill
     }
     

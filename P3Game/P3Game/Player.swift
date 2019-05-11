@@ -18,7 +18,7 @@ class Player {
         self.playerName = playerName
     }
     
-    func isTeamAlive() -> Bool {
+    internal func isTeamAlive() -> Bool {
         for char in team {
             if char.isAlive {
                 return true
@@ -26,8 +26,8 @@ class Player {
         }
         return false
     }
-    
-    func addTeamTotalDamage(playerChar: Characters) {
+//    add every damages to know the total team damages
+    internal func addTeamTotalDamage(playerChar: Characters) {
         teamTotalDamage += playerChar.weapon.damage
     }
 }

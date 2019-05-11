@@ -14,7 +14,7 @@ class PlayerManager {
     var player2: Player?
     var opponent: Player?
     
-    func presentMenu() {
+    internal func presentMenu() {
         print("\n1. Player 1 choose your name")
         player1 = createPlayer()
         print("\n1. Player 2 choose your name")
@@ -23,7 +23,7 @@ class PlayerManager {
         playerDevelopment()
     }
     
-    func createPlayer() -> Player {
+    private func createPlayer() -> Player {
         if let choice = readLine(), !choice.isEmpty {
             return Player(playerName: choice)
         } else {
@@ -32,7 +32,7 @@ class PlayerManager {
         }
     }
     
-    func playerDevelopment() {
+    private func playerDevelopment() {
         print("Characters selection"
             + "\n Each of you will have to choose and name 3 characters between :"
             + "\n The Fighter (life point: 100, weapon: Sword, weapon damage: 15)"
@@ -54,26 +54,29 @@ class PlayerManager {
                     Fight().attack(player: currentPlayer, opponent: nextPlayer)
                     swap(&currentPlayer, &nextPlayer)
                 }
-                
-                
+                gameStatistics()
                 if currentPlayer.isTeamAlive() {
                     print("Congratulation \(currentPlayer.playerName) your are the winner !!!"
-                        + "\n \(nextPlayer.playerName) next time you'll be better ;)")
+                        + "\n You're team damages \(currentPlayer.teamTotalDamage)"
+                        + "\n \(nextPlayer.playerName) next time you'll be better ;)"
+                        + "\n You're team damages \(nextPlayer.teamTotalDamage)")
                 } else {
                     print("Congratulation \(nextPlayer.playerName) your are the winner !!!"
-                        + "\n \(currentPlayer.playerName) next time you'll be better ;)")
+                        + "\n You're team damages \(nextPlayer.teamTotalDamage)"
+                        + "\n \(currentPlayer.playerName) next time you'll be better ;)"
+                        + "\n You're team damages \(currentPlayer.teamTotalDamage)")
                 }
             }
         }
     }
     
-    func gameStatistics() {
+    private func gameStatistics() {
         print("In this game there was :"
             + "\n \(Fight().attackCount) rounds"
-            + "\n ")
+            + "\n \(Fight().numberOfSpecial) special attacks")
     }
     
-    func playerTeamCreation(player: Player) {
+    private func playerTeamCreation(player: Player) {
         print("\n \(player.playerName) it's your turn to choose"
             + "\n To choose press 1 for The Fighter, 2 for The Wizard"
             + "\n                 3 for The Colossus, 4 for The Dwarf")
@@ -101,7 +104,7 @@ class PlayerManager {
         }
     }
     
-    func createFighterPlayer() -> Fighter {
+    private func createFighterPlayer() -> Fighter {
         if let choice = readLine(), !choice.isEmpty {
             return Fighter(name: choice)
         } else {
@@ -110,7 +113,7 @@ class PlayerManager {
         }
     }
 
-    func createWizardPlayer() -> Wizard {
+    private func createWizardPlayer() -> Wizard {
         if let choice = readLine(), !choice.isEmpty {
             return Wizard(name: choice)
         } else {
@@ -119,7 +122,7 @@ class PlayerManager {
         }
     }
     
-    func createColossusPlayer() -> Colossus {
+    private func createColossusPlayer() -> Colossus {
         if let choice = readLine(), !choice.isEmpty {
             return Colossus(name: choice)
         } else {
@@ -128,7 +131,7 @@ class PlayerManager {
         }
     }
     
-    func createDwarfPlayer() -> Dwarf {
+    private func createDwarfPlayer() -> Dwarf {
         if let choice = readLine(), !choice.isEmpty {
             return Dwarf(name: choice)
         } else {

@@ -10,7 +10,8 @@ import Foundation
 
 
 class Chest : Fight {
-    func chestRandomWeapon(_ player: Player) {
+//    the function to add the random weapon
+    internal func chestRandomWeapon(_ player: Player) {
         let attacker = Fight().getAttacker(player)
         switch attacker {
             case is Fighter:
