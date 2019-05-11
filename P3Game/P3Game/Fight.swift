@@ -11,7 +11,11 @@ import Foundation
 
 class Fight {
     var attackCount = 0
+    var numberOfSpecial = 0
     
+    func numberOfSpecialCounter() {
+        numberOfSpecial += 1
+    }
     
     func charactersStats(player: Player) {
         for char in player.team {
@@ -68,7 +72,7 @@ class Fight {
     func getAttacker(_ player: Player) -> Characters {
         let randomWeapon = [1, 2, 3, 4, 5][Int(arc4random_uniform(5))]
         
-        if randomWeapon == 3 {
+        if randomWeapon == 5 {
             Chest().chestRandomWeapon(player)
         } else {
             getNormalAttacker(player)
@@ -85,16 +89,20 @@ class Fight {
                 chooseChar(opponent: opponent)
                 let opponentChar = getCharacter(player: opponent)
                 attacker.specialAttack(opponent: opponentChar)
+                numberOfSpecialCounter()
             case is Wizard:
                 wizHeal(player: player)
                 let opponentChar = getCharacter(player: player)
                 attacker.specialAttack(opponent: opponentChar)
+                numberOfSpecialCounter()
             case is Colossus:
                 attacker.lp += attacker.specialSkill
+                numberOfSpecialCounter()
             case is Dwarf:
                 for index in opponent.team.indices {
                     opponent.team[index].lp -= attacker.specialSkill
                 }
+                numberOfSpecialCounter()
             default:
                 fatalError("Unknown type of character")
             }

@@ -11,7 +11,7 @@ import Foundation
 
 class Player {
     var team = [Characters]()
-    
+    var teamTotalDamage = 0
     var playerName: String
     
     init(playerName: String) {
@@ -25,5 +25,9 @@ class Player {
             }
         }
         return false
+    }
+    
+    func addTeamTotalDamage(playerChar: Characters) {
+        teamTotalDamage += playerChar.weapon.damage
     }
 }

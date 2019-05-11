@@ -54,6 +54,8 @@ class PlayerManager {
                     Fight().attack(player: currentPlayer, opponent: nextPlayer)
                     swap(&currentPlayer, &nextPlayer)
                 }
+                
+                
                 if currentPlayer.isTeamAlive() {
                     print("Congratulation \(currentPlayer.playerName) your are the winner !!!"
                         + "\n \(nextPlayer.playerName) next time you'll be better ;)")
@@ -63,6 +65,12 @@ class PlayerManager {
                 }
             }
         }
+    }
+    
+    func gameStatistics() {
+        print("In this game there was :"
+            + "\n \(Fight().attackCount) rounds"
+            + "\n ")
     }
     
     func playerTeamCreation(player: Player) {
