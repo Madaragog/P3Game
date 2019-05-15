@@ -1,5 +1,5 @@
 //
-//  Colossus.swift
+//  Fighter.swift
 //  P3Game
 //
 //  Created by Cedric on 03/04/2019.
@@ -9,8 +9,8 @@
 import Foundation
 
 
-class Colossus: Characters {
+class Fighter: Character {
     init(name: String) {
-        super.init(type: "Colossus", lp: 120, maxLp: 120, weapon: Mace(), name: name, specialSkill: -6)
+        super.init(type: "Fighter", lp: 100, maxLp: 100, weapon: Sword(), name: name, specialSkill: 30)
     }
 }

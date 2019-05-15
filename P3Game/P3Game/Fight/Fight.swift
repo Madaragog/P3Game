@@ -49,7 +49,8 @@ class Fight {
             + "\n press y for yes and n for no")
     }
     
-    private func getCharacter(player: Player) -> Characters {
+    private func getCharacter(player: Player) -> Character {
+        getNormalAttacker(player)
         if let choice = readLine() {
             if let index = Int(choice), player.team.indices.contains(index - 1){
                 if player.team[index - 1].isAlive {
@@ -61,6 +62,7 @@ class Fight {
         return getCharacter(player: player)
     }
 //    function to get an attacker without using the chest (the chest add a new weapon randomly)
+//    renommer
     func getNormalAttacker(_ player: Player) {
         print("\(player.playerName) please choose the character you will use")
         for index in player.team.indices {
@@ -69,44 +71,34 @@ class Fight {
             }
         }
     }
-    
-    internal func getAttacker(_ player: Player) -> Characters {
-        let randomWeapon = [1, 2, 3, 4, 5][Int(arc4random_uniform(5))]
-        
-        if randomWeapon == 5 {
-            Chest().chestRandomWeapon(player)
-        } else {
-            getNormalAttacker(player)
-        }
-        return getCharacter(player: player)
-    }
 
     private func performSpecialAttack(player: Player, opponent: Player) {
         askSpecialSkill()
         if let choice = readLine(), choice.lowercased() == "y" {
-            let attacker = getAttacker(player)
+            let attacker = getCharacter(player: player)
+            Chest.chestRandomWeapon(attacker)
             switch attacker {
             case is Fighter:
                 chooseChar(opponent: opponent)
                 let opponentChar = getCharacter(player: opponent)
                 attacker.specialAttack(opponent: opponentChar)
-                player.addTeamTotalDamage(playerChar: attacker)
+                attacker.TotalDamageGiven += attacker.specialSkill
+                opponentChar.TotalDamageReceived += attacker.specialSkill
                 numberOfSpecialCounter()
             case is Wizard:
                 wizHeal(player: player)
                 let opponentChar = getCharacter(player: player)
                 attacker.specialAttack(opponent: opponentChar)
-                player.addTeamTotalDamage(playerChar: attacker)
                 numberOfSpecialCounter()
             case is Colossus:
                 attacker.lp += attacker.specialSkill
-                player.addTeamTotalDamage(playerChar: attacker)
                 numberOfSpecialCounter()
             case is Dwarf:
                 for index in opponent.team.indices {
                     opponent.team[index].lp -= attacker.specialSkill
+                    opponent.team[index].TotalDamageReceived += attacker.specialSkill
                 }
-                player.addTeamTotalDamage(playerChar: attacker)
+                attacker.TotalDamageGiven += attacker.specialSkill * opponent.team.count
                 numberOfSpecialCounter()
             default:
                 fatalError("Unknown type of character")
@@ -115,36 +107,46 @@ class Fight {
             performAttack(player: player, opponent: opponent)
         }
     }
-    
+//  degager les public
     private func performAttack(player: Player, opponent: Player) {
-        let attacker = getAttacker(player)
+        let attacker = getCharacter(player: player)
+        Chest.chestRandomWeapon(attacker)
         switch attacker {
         case is Fighter:
             chooseChar(opponent: opponent)
             let opponentChar = getCharacter(player: opponent)
             attacker.attack(opponent: opponentChar)
-            player.addTeamTotalDamage(playerChar: attacker)
+            attacker.TotalDamageGiven += attacker.weapon.damage
+            opponentChar.TotalDamageReceived += attacker.weapon.damage
         case is Wizard:
             wizHeal(player: player)
             let opponentChar = getCharacter(player: player)
             attacker.attack(opponent: opponentChar)
-            player.addTeamTotalDamage(playerChar: attacker)
         case is Colossus:
             chooseChar(opponent: opponent)
             let opponentChar = getCharacter(player: opponent)
             attacker.attack(opponent: opponentChar)
-            player.addTeamTotalDamage(playerChar: attacker)
+            attacker.TotalDamageGiven += attacker.weapon.damage
+            opponentChar.TotalDamageReceived += attacker.weapon.damage
         case is Dwarf:
             chooseChar(opponent: opponent)
             let opponentChar = getCharacter(player: opponent)
             attacker.attack(opponent: opponentChar)
-            player.addTeamTotalDamage(playerChar: attacker)
+            attacker.TotalDamageGiven += attacker.weapon.damage
+            opponentChar.TotalDamageReceived += attacker.weapon.damage
         default:
             fatalError("Unknown type of character")
         }
     }
     
-    internal func attack(player: Player, opponent: Player) {
+    func characterDamageStats(player: Player) {
+        print(" \(player.playerName), number of damage given and received for each charachter :")
+        for char in player.team {
+            print("\(char.type) named \(char.name); Damage given : \(char.TotalDamageGiven), Damage received \(char.TotalDamageReceived)")
+        }
+    }
+    
+    func attack(player: Player, opponent: Player) {
         attackCount += 1
         charactersStats(player: player)
         if attackCount % 5 == 0 {

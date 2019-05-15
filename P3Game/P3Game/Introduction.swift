@@ -9,7 +9,7 @@
 import Foundation
 
 
-internal class Introduction {
+class Introduction {
     func start() {
         print("Hi and welcome to P3Game"
             +   "\n Game Rules :"

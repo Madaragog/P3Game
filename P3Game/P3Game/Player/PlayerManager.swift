@@ -13,8 +13,9 @@ class PlayerManager {
     var player1: Player?
     var player2: Player?
     var opponent: Player?
+    let fight = Fight()
     
-    internal func presentMenu() {
+    func presentMenu() {
         print("\n1. Player 1 choose your name")
         player1 = createPlayer()
         print("\n1. Player 2 choose your name")
@@ -51,20 +52,18 @@ class PlayerManager {
                 playerTeamCreation(player: nextPlayer)
                 
                 while p1.isTeamAlive() && p2.isTeamAlive() {
-                    Fight().attack(player: currentPlayer, opponent: nextPlayer)
+                    fight.attack(player: currentPlayer, opponent: nextPlayer)
                     swap(&currentPlayer, &nextPlayer)
                 }
                 gameStatistics()
+                fight.characterDamageStats(player: currentPlayer)
+                fight.characterDamageStats(player: nextPlayer)
                 if currentPlayer.isTeamAlive() {
                     print("Congratulation \(currentPlayer.playerName) your are the winner !!!"
-                        + "\n You're team damages \(currentPlayer.teamTotalDamage)"
-                        + "\n \(nextPlayer.playerName) next time you'll be better ;)"
-                        + "\n You're team damages \(nextPlayer.teamTotalDamage)")
+                        + "\n \(nextPlayer.playerName) next time you'll be better ;)")
                 } else {
                     print("Congratulation \(nextPlayer.playerName) your are the winner !!!"
-                        + "\n You're team damages \(nextPlayer.teamTotalDamage)"
-                        + "\n \(currentPlayer.playerName) next time you'll be better ;)"
-                        + "\n You're team damages \(currentPlayer.teamTotalDamage)")
+                        + "\n \(currentPlayer.playerName) next time you'll be better ;)")
                 }
             }
         }
@@ -72,8 +71,8 @@ class PlayerManager {
     
     private func gameStatistics() {
         print("In this game there was :"
-            + "\n \(Fight().attackCount) rounds"
-            + "\n \(Fight().numberOfSpecial) special attacks")
+            + "\n \(fight.attackCount) rounds"
+            + "\n \(fight.numberOfSpecial) special attacks")
     }
     
     private func playerTeamCreation(player: Player) {

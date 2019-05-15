@@ -1,5 +1,5 @@
 //
-//  Fighter.swift
+//  Dwarf.swift
 //  P3Game
 //
 //  Created by Cedric on 03/04/2019.
@@ -9,8 +9,8 @@
 import Foundation
 
 
-class Fighter: Characters {
+class Dwarf: Character {
     init(name: String) {
-        super.init(type: "Fighter", lp: 100, maxLp: 100, weapon: Sword(), name: name, specialSkill: 30)
+        super.init(type: "Dwarf", lp: 80, maxLp: 80, weapon: Axe(), name: name, specialSkill: 5)
     }
 }

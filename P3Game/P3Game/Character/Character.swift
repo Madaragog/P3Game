@@ -9,7 +9,7 @@
 import Foundation
 
 
-class Characters {
+class Character {
     let type: String
     var lp: Int {
         didSet {
@@ -27,6 +27,8 @@ class Characters {
         return lp > 0
     }
     var specialSkill : Int
+    var TotalDamageGiven = 0
+    var TotalDamageReceived = 0
     
     init(type: String, lp: Int, maxLp: Int, weapon: Weapon, name: String, specialSkill: Int) {
         self.type = type
@@ -37,11 +39,11 @@ class Characters {
         self.specialSkill = specialSkill
     }
     
-    internal func attack(opponent: Characters) {
+    func attack(opponent: Character) {
         opponent.lp -= weapon.damage
     }
     
-    internal func specialAttack(opponent: Characters) {
+    func specialAttack(opponent: Character) {
         opponent.lp -= specialSkill
     }
     

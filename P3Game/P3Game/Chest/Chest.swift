@@ -9,11 +9,13 @@
 import Foundation
 
 
-class Chest : Fight {
+class Chest {
 //    the function to add the random weapon
-    internal func chestRandomWeapon(_ player: Player) {
-        let attacker = Fight().getAttacker(player)
-        switch attacker {
+     static func chestRandomWeapon(_ attacker: Character) {
+        let randomWeapon = [1, 2, 3, 4, 5][Int(arc4random_uniform(5))]
+        
+        if randomWeapon == 5 {
+            switch attacker {
             case is Fighter:
                 attacker.weapon = [Sword(), Spear(), Nunchaku()][Int(arc4random_uniform(3))]
             case is Wizard:
@@ -25,5 +27,6 @@ class Chest : Fight {
             default:
                 fatalError("Unknown type of character")
             }
+        }
     }
 }
