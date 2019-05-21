@@ -25,24 +25,6 @@ class Fight {
             }
         }
     }
-//    function when you use the wizard to heal a comrade
-    private func wizHeal(player: Player) {
-        print("\(player.playerName) please choose the character to heal")
-        for index in player.team.indices {
-            if player.team[index].isAlive {
-                print("For the \(player.team[index].name) please press \(index + 1)")
-            }
-        }
-    }
-    
-    private func chooseChar(opponent: Player) {
-        print("Please choose who you're gonna attack")
-        for index in opponent.team.indices {
-            if opponent.team[index].isAlive {
-                print("For the \(opponent.team[index].name), please press \(index + 1)")
-            }
-        }
-    }
     
     private func askSpecialSkill() {
         print("Would you like to use your special skill ?"
@@ -61,10 +43,20 @@ class Fight {
         print("the command you entered is unavailable please retry")
         return getCharacter(player: player)
     }
-//    function to get an attacker without using the chest (the chest add a new weapon randomly)
-//    renommer
-    func getNormalAttacker(_ player: Player) {
+    
+    private func chooseHealPrint(_ player: Player) {
+        print("\(player.playerName) please choose the character to heal")
+    }
+    
+    private func chooseOppPrint(_ player: Player) {
+        print("\(player.playerName) Please choose who you're gonna attack")
+    }
+    
+    private func choosePlayPrint(_ player: Player) {
         print("\(player.playerName) please choose the character you will use")
+    }
+//    function to get an attacker without using the chest (the chest add a new weapon randomly)
+    private func getNormalAttacker(_ player: Player) {
         for index in player.team.indices {
             if player.team[index].isAlive {
                 print("For the \(player.team[index].name) please press \(index + 1)")
@@ -75,18 +67,19 @@ class Fight {
     private func performSpecialAttack(player: Player, opponent: Player) {
         askSpecialSkill()
         if let choice = readLine(), choice.lowercased() == "y" {
+            choosePlayPrint(player)
             let attacker = getCharacter(player: player)
             Chest.chestRandomWeapon(attacker)
             switch attacker {
             case is Fighter:
-                chooseChar(opponent: opponent)
+                chooseOppPrint(player)
                 let opponentChar = getCharacter(player: opponent)
                 attacker.specialAttack(opponent: opponentChar)
                 attacker.TotalDamageGiven += attacker.specialSkill
                 opponentChar.TotalDamageReceived += attacker.specialSkill
                 numberOfSpecialCounter()
             case is Wizard:
-                wizHeal(player: player)
+                chooseHealPrint(player)
                 let opponentChar = getCharacter(player: player)
                 attacker.specialAttack(opponent: opponentChar)
                 numberOfSpecialCounter()
@@ -95,10 +88,12 @@ class Fight {
                 numberOfSpecialCounter()
             case is Dwarf:
                 for index in opponent.team.indices {
-                    opponent.team[index].lp -= attacker.specialSkill
-                    opponent.team[index].TotalDamageReceived += attacker.specialSkill
+                    if player.team[index].isAlive {
+                        opponent.team[index].lp -= attacker.specialSkill
+                        opponent.team[index].TotalDamageReceived += attacker.specialSkill
+                        attacker.TotalDamageGiven += attacker.specialSkill * opponent.team.count
+                    }
                 }
-                attacker.TotalDamageGiven += attacker.specialSkill * opponent.team.count
                 numberOfSpecialCounter()
             default:
                 fatalError("Unknown type of character")
@@ -107,29 +102,30 @@ class Fight {
             performAttack(player: player, opponent: opponent)
         }
     }
-//  degager les public
+    
     private func performAttack(player: Player, opponent: Player) {
+        choosePlayPrint(player)
         let attacker = getCharacter(player: player)
         Chest.chestRandomWeapon(attacker)
         switch attacker {
         case is Fighter:
-            chooseChar(opponent: opponent)
+            chooseOppPrint(player)
             let opponentChar = getCharacter(player: opponent)
             attacker.attack(opponent: opponentChar)
             attacker.TotalDamageGiven += attacker.weapon.damage
             opponentChar.TotalDamageReceived += attacker.weapon.damage
         case is Wizard:
-            wizHeal(player: player)
+            chooseHealPrint(player)
             let opponentChar = getCharacter(player: player)
             attacker.attack(opponent: opponentChar)
         case is Colossus:
-            chooseChar(opponent: opponent)
+            chooseOppPrint(player)
             let opponentChar = getCharacter(player: opponent)
             attacker.attack(opponent: opponentChar)
             attacker.TotalDamageGiven += attacker.weapon.damage
             opponentChar.TotalDamageReceived += attacker.weapon.damage
         case is Dwarf:
-            chooseChar(opponent: opponent)
+            chooseOppPrint(player)
             let opponentChar = getCharacter(player: opponent)
             attacker.attack(opponent: opponentChar)
             attacker.TotalDamageGiven += attacker.weapon.damage
@@ -140,7 +136,7 @@ class Fight {
     }
     
     func characterDamageStats(player: Player) {
-        print(" \(player.playerName), number of damage given and received for each charachter :")
+        print(" \(player.playerName), number of damage given and received for each character :")
         for char in player.team {
             print("\(char.type) named \(char.name); Damage given : \(char.TotalDamageGiven), Damage received \(char.TotalDamageReceived)")
         }
