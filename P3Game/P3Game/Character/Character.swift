@@ -22,11 +22,11 @@ class Character {
     }
     let maxLp: Int
     var weapon: Weapon
-    var name: String
+    let name: String
     var isAlive: Bool {
         return lp > 0
     }
-    var specialSkill : Int
+    let specialSkill : Int
     var TotalDamageGiven = 0
     var TotalDamageReceived = 0
     
