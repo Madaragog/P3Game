@@ -41,10 +41,14 @@ class Character {
     
     func attack(opponent: Character) {
         opponent.lp -= weapon.damage
+        opponent.TotalDamageReceived += weapon.damage
+        TotalDamageGiven += weapon.damage
     }
     
     func specialAttack(opponent: Character) {
         opponent.lp -= specialSkill
+        opponent.TotalDamageReceived += specialSkill
+        TotalDamageGiven += specialSkill
     }
     
 }

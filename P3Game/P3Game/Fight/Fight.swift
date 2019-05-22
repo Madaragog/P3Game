@@ -75,8 +75,6 @@ class Fight {
                 chooseOppPrint(player)
                 let opponentChar = getCharacter(player: opponent)
                 attacker.specialAttack(opponent: opponentChar)
-                attacker.TotalDamageGiven += attacker.specialSkill
-                opponentChar.TotalDamageReceived += attacker.specialSkill
                 numberOfSpecialCounter()
             case is Wizard:
                 chooseHealPrint(player)
@@ -112,8 +110,6 @@ class Fight {
             chooseOppPrint(player)
             let opponentChar = getCharacter(player: opponent)
             attacker.attack(opponent: opponentChar)
-            attacker.TotalDamageGiven += attacker.weapon.damage
-            opponentChar.TotalDamageReceived += attacker.weapon.damage
         case is Wizard:
             chooseHealPrint(player)
             let opponentChar = getCharacter(player: player)
@@ -122,14 +118,10 @@ class Fight {
             chooseOppPrint(player)
             let opponentChar = getCharacter(player: opponent)
             attacker.attack(opponent: opponentChar)
-            attacker.TotalDamageGiven += attacker.weapon.damage
-            opponentChar.TotalDamageReceived += attacker.weapon.damage
         case is Dwarf:
             chooseOppPrint(player)
             let opponentChar = getCharacter(player: opponent)
             attacker.attack(opponent: opponentChar)
-            attacker.TotalDamageGiven += attacker.weapon.damage
-            opponentChar.TotalDamageReceived += attacker.weapon.damage
         default:
             fatalError("Unknown type of character")
         }
