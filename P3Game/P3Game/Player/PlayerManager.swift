@@ -20,7 +20,10 @@ class PlayerManager {
         player1 = createPlayer()
         print("\n1. Player 2 choose your name")
         player2 = createPlayer()
-        
+        while player2?.playerName == player1!.playerName {
+            print("Sorry but you can't have the same name as the player 1")
+            player2 = createPlayer()
+        }
         playerDevelopment()
     }
     
